@@ -27,7 +27,7 @@ public class MoveService : MonoBehaviour
     public int previousDirection;
     private int direction;
     private int jumpsLeft;
-    
+
     private bool jumpFlag;
     private float angle;
     private bool disableHover;
@@ -65,14 +65,14 @@ public class MoveService : MonoBehaviour
     }
 
     public void ControllerMove()
-    { 
+    {
         var velocity = _controller.velocity;
-        if (_controller.isGrounded) ResetJumps();   
+        if (_controller.isGrounded) ResetJumps();
         if (!_statusModel.disableMove)
         {
             Jump(ref velocity);
             AirMovement(ref velocity);
-            Dodge(ref velocity);   
+            Dodge(ref velocity);
             Walk(ref velocity);
             HitStun();
             Bump();
@@ -99,6 +99,7 @@ public class MoveService : MonoBehaviour
             else if (inputX > 0) velocity.x = walkSpeed;
             else velocity.x = 0;
         }
+        if (_statusModel.isAttacking && _statusModel.isGrounded) velocity.x = 0;
     }
 
     public void Jump(ref Vector3 velocity)
@@ -112,12 +113,13 @@ public class MoveService : MonoBehaviour
             _timerManager.jumpTimer.Trigger(maxJumpTime);
             jumpFlag = true;
         }
-        if (!_timerManager.jumpTimer.IsUp() && jumpFlag && !isHovering) 
+        if (!_timerManager.jumpTimer.IsUp() && jumpFlag && !isHovering)
         {
             velocity.y = (maxJumpTime - _timerManager.jumpTimer.GetTime()) * jumpForce;
         }
         if (jumpFlag && !_inputManager.JumpIsPressed() && _timerManager.jumpTimer.GetTime() < maxJumpTime * .3)
         {
+            disableHover = false;
             jumpFlag = false;
             jumpsLeft--;
         }
@@ -125,6 +127,7 @@ public class MoveService : MonoBehaviour
 
     public void AirMovement(ref Vector3 velocity)
     {
+        HoverHitBoxRotation();
         if (_inputManager.HoverIsPressed() && !_controller.isGrounded && !disableHover && !_statusModel.staminaDepleted)
         {
             CalculateHover(ref velocity, gravity);
@@ -144,6 +147,8 @@ public class MoveService : MonoBehaviour
             angle = -.1f;
             velocity.y += -gravity * Time.deltaTime;
         }
+
+        if (_controller.isGrounded && !_statusModel.isCling) DisableHover();
     }
 
     public void Dodge(ref Vector3 velocity)
@@ -178,7 +183,7 @@ public class MoveService : MonoBehaviour
         if (!_statusModel.isBump) return;
 
         var velocity = _controller.velocity;
-        velocity.x = bumpSpeed *bumpDirection;
+        velocity.x = bumpSpeed * bumpDirection;
         _controller.move(velocity * Time.deltaTime);
     }
 
@@ -226,6 +231,25 @@ public class MoveService : MonoBehaviour
         else return angle;
     }
 
+    public void HoverHitBoxRotation()
+    {
+        if (_controller.isGrounded || GetComponent<AttackService>().IsAttackingAnimation() || !isHovering)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else if (isHovering)
+        {
+            if (_controller.velocity.x > 0)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, GetAngle() * 57.2958f);
+            }
+            if (_controller.velocity.x < 0)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 360 - GetAngle() * 57.2958f);
+            }
+        }
+    }
+
     #endregion
 
     #region Math and resets
@@ -233,14 +257,14 @@ public class MoveService : MonoBehaviour
     {
         jumpsLeft = maxJumps;
         isHovering = false;
-        disableHover = false;
+        if(!_inputManager.HoverIsPressed()) disableHover = false;
     }
     public void MoveToLastCheckpoint()
     {
         _controller.velocity.x = 0;
         _controller.velocity.y = 0;
-        _controller.transform.position = new Vector3 (lastCheckPoint.x, lastCheckPoint.y, 0);
-    } 
+        _controller.transform.position = new Vector3(lastCheckPoint.x, lastCheckPoint.y, 0);
+    }
     public void SetCheckPoint(float posX, float posY)
     {
         lastCheckPoint.x = posX;
@@ -265,7 +289,7 @@ public class MoveService : MonoBehaviour
 
     public void SetBumpDirection(int bumpDirection)
     {
-        this.bumpDirection= bumpDirection;
+        this.bumpDirection = bumpDirection;
     }
 
     public void SetClingJumpDirection(int clingJumpDirection)

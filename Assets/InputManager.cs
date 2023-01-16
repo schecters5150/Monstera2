@@ -68,7 +68,6 @@ public class InputManager : MonoBehaviour
     public bool AttackRightTriggered()
     {
         if (!_inventoryModel.jsonModel.sword) return false;
-
         return _inputMaster.Platformer.AttackRight.triggered;
     }
     public bool AttackUpTriggered()

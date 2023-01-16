@@ -18,7 +18,7 @@ public class SwordController : MonoBehaviour
     {
         if (collider.tag == "Enemy")
         {
-            if (attackService.downFlag)
+            if (attackService.attackDownFlag)
             {
                 moveService.Bounce();
                 moveService.ResetJumps();

@@ -7,18 +7,23 @@ public class AttackService : MonoBehaviour
     public int damage;
     public float swordSwingTime;
     public float attackDelayTime;
-    public bool downFlag;
+    public int swordStaminaReduction;
+    public bool attackLeftFlag;
+    public bool attackRightFlag;
+    public bool attackDownFlag;
 
     public GameObject hitboxLeft;
     public GameObject hitboxRight;
     public GameObject hitboxUp;
     public GameObject hitboxDown;
     public GameObject _playerSprite;
+    
 
     private InputManager inputManager;
     private Animator animator;
     private StatusModel statusModel;
     private PlayerTimerManager timerManager;
+    private PlayerHealth healthService;
 
 
     public void Start()
@@ -27,6 +32,7 @@ public class AttackService : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         animator = GetComponent<Animator>();
         timerManager = GetComponent<PlayerTimerManager>();
+        healthService = GetComponent<PlayerHealth>();
     }
     public void Update()
     {
@@ -42,16 +48,15 @@ public class AttackService : MonoBehaviour
             AttackUp();
             AttackDown();
         }
+        ClearAttackFlags();
     }
     private void AttackRight()
     {
         if (inputManager.AttackRightTriggered() && !statusModel.isAttacking)
         {
-            ResetSpriteRotation();
-            _playerSprite.GetComponent<SpriteRenderer>().flipX = false;
+            SwordFunctions();
+            attackRightFlag = true;
             hitboxRight.SetActive(true);
-            timerManager.attackTimer.Trigger(swordSwingTime);
-            statusModel.isAttacking = true;
             animator.SetTrigger("TrAttackRight");
         }           
     }
@@ -59,11 +64,9 @@ public class AttackService : MonoBehaviour
     {
         if (inputManager.AttackLeftTriggered() && !statusModel.isAttacking)
         {
-            ResetSpriteRotation();
-            _playerSprite.GetComponent<SpriteRenderer>().flipX = true;
+            SwordFunctions();
+            attackLeftFlag = true;
             hitboxLeft.SetActive(true);
-            timerManager.attackTimer.Trigger(swordSwingTime);
-            statusModel.isAttacking = true;
             animator.SetTrigger("TrAttackLeft");
         }
     }
@@ -71,10 +74,8 @@ public class AttackService : MonoBehaviour
     {
         if (inputManager.AttackUpTriggered() && !statusModel.isAttacking)
         {
-            ResetSpriteRotation();
+            SwordFunctions();
             hitboxUp.SetActive(true);
-            timerManager.attackTimer.Trigger(swordSwingTime);
-            statusModel.isAttacking = true;
             animator.SetTrigger("TrAttackUp");
         }
     }
@@ -82,13 +83,19 @@ public class AttackService : MonoBehaviour
     {
         if (inputManager.AttackDownTriggered() && !statusModel.isAttacking)
         {
-            ResetSpriteRotation();
+            SwordFunctions();
             hitboxDown.SetActive(true);
-            timerManager.attackTimer.Trigger(swordSwingTime);
-            statusModel.isAttacking = true;
             animator.SetTrigger("TrAttackDown");
-            downFlag = true;
+            attackDownFlag = true;
         }
+    }
+
+    private void SwordFunctions()
+    {
+        timerManager.attackTimer.Trigger(swordSwingTime);
+        healthService.ReduceStamina(swordStaminaReduction);
+        ResetSpriteRotation();
+        statusModel.isAttacking = true;
     }
 
     private void ResetSpriteRotation()
@@ -110,13 +117,29 @@ public class AttackService : MonoBehaviour
         }
     }
 
+    public bool IsAttackingAnimation()
+    {
+        if (!timerManager.attackTimer.IsUp()) return true;
+        return false;
+    }
+
+    public void ClearAttackFlags()
+    {
+        if (!timerManager.attackTimer.IsUp()) { 
+            attackLeftFlag = false;
+            attackRightFlag = false;
+        }
+    }
+
     public void SetStatusModel(StatusModel statusModel)
     {
         this.statusModel = statusModel;
     }
 
+
+
     public void ResetDownFlag()
     {
-        downFlag = false;
+        attackDownFlag = false;
     }
 }

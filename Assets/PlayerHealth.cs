@@ -52,6 +52,10 @@ public class PlayerHealth : MonoBehaviour
         if (stamina < maxStamina) stamina += staminaRefreshRate * Time.deltaTime;
         else stamina = maxStamina;
     }
+    public void RefreshAllStamina()
+    {
+        stamina = maxStamina;
+    }
     public void AddStamina(float stamina)
     {
         this.stamina += stamina;
