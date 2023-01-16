@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: d58a0fd16bf5fcb4abc771c3e7116afd
+  - enabled: 1
+    path: Assets/Scenes/Prototypes/HoverPrototype1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Prototypes/DodgePrototype.unity
+    guid: bb7c432562e6e5c409444d41f0d9da24
+  - enabled: 1
+    path: Assets/Scenes/Prototypes/HoverPrototype2.unity
+    guid: 2db90073c49ee054c8da4bbc5622465a
+  - enabled: 1
+    path: Assets/Scenes/Prototypes/WallClingPrototype.unity
+    guid: 1524d6eb9e7e4c7418d0b763a1a5794b
+  - enabled: 1
+    path: Assets/Scenes/Prototypes/BouncePrototype.unity
+    guid: 54d8672169d8a8f458a6d7aa9a5dc990
+  - enabled: 1
+    path: Assets/Scenes/Prototypes/Series/Level1.unity
+    guid: 677a5a2aec8197945b7346ce0ef0ebc5
+  - enabled: 1
+    path: Assets/Scenes/Prototypes/GraphicsPrototype/Green.unity
+    guid: 650557e743494a64089a7ae455630561
+  - enabled: 1
+    path: Assets/Scenes/TheGreen/Green_1.unity
+    guid: 07f79ff52d7edd5448d969b144bcf9d9
+  - enabled: 1
+    path: Assets/Scenes/TheGreen/Green_2.unity
+    guid: eefae0128d73d79449181b52770135b6
+  - enabled: 1
+    path: Assets/Scenes/Prototypes/TilePrototype/TilePrototype.unity
+    guid: 1030ea5ca26fe9147abb4a7a48bd8403
+  - enabled: 0
+    path: Assets/Scenes/Prototypes/CombatPrototype.unity
+    guid: 21b16dfeba9d2234db144cd67422e3b6
+  m_configObjects: {}
