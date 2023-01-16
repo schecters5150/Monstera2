@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.tag == "DodgeGate")
         {
+
             dodgeGateSemiphor = false;
         }
         if (collider.tag == "Enemy")
