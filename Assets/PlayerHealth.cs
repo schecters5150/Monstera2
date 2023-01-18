@@ -13,11 +13,15 @@ public class PlayerHealth : MonoBehaviour
     public int heals;
 
     private StatusModel statusModel;
+    private InputManager inputManager;
 
     private void Start()
     {
         statusModel = GetComponent<StatusModel>();
+        inputManager = GetComponent<InputManager>();
+
         stamina = maxStamina;
+        heals = ES3.Load("heals", maxHeals);
         health = ES3.Load("health", 0);
         if (health == 0) health = maxHealth;
     }
@@ -25,12 +29,26 @@ public class PlayerHealth : MonoBehaviour
     {
         if(statusModel.isGrounded) RefreshStamina();
         StaminaState();
+        CheckHealing();
         if (health <= 0) {
             ES3.Save("health", 0);
             ES3.Save("loadToSavePoint", true);
             SceneManager.LoadScene(ES3.Load("SaveScene", 0));
         }
     }
+
+    private void CheckHealing()
+    {
+        if (inputManager.HealTriggered() && heals > 0)
+        {
+            heals--;
+            health += maxHealth / 2;
+        }
+
+        if (health > maxHealth) health = maxHealth;
+    }
+
+
     public int GetHealth()
     {
         return health;

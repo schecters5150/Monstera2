@@ -90,12 +90,14 @@ public class PlayerController : MonoBehaviour
         if (collider.tag == "Hazard")
         {
             _playerHealth.ReduceHealth(_playerHealth.maxHealth / 10);
+            _playerHealth.RefreshAllStamina();
             _moveService.MoveToLastCheckpoint();
             _timerManager.disableMoveTimer.Trigger(.5f);
         }
         if (collider.tag == "LoadTrigger")
         {
             ES3.Save("health", _playerHealth.health);
+            ES3.Save("heals", _playerHealth.heals);
             ES3.Save("checkpointId", collider.GetComponent<CheckpointId>().id);
             SceneManager.LoadScene(collider.GetComponent<SceneId>().id);
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10851509, g: 0.16293335, b: 0.27395406, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,13 +178,33 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: -5150223490927484895, guid: a8fbd896420c42947b35647ba133f7f4, type: 3}
+      propertyPath: m_TagString
+      value: Hazard
+      objectReference: {fileID: 0}
+    - target: {fileID: -3677356901108570135, guid: a8fbd896420c42947b35647ba133f7f4, type: 3}
+      propertyPath: m_TagString
+      value: Hazard
+      objectReference: {fileID: 0}
     - target: {fileID: -858245706546458207, guid: a8fbd896420c42947b35647ba133f7f4, type: 3}
       propertyPath: m_Name
       value: Map1
       objectReference: {fileID: 0}
+    - target: {fileID: 1278623579760537317, guid: a8fbd896420c42947b35647ba133f7f4, type: 3}
+      propertyPath: m_TagString
+      value: Hazard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894821801199947108, guid: a8fbd896420c42947b35647ba133f7f4, type: 3}
+      propertyPath: m_TagString
+      value: Hazard
+      objectReference: {fileID: 0}
     - target: {fileID: 3139256700548805602, guid: a8fbd896420c42947b35647ba133f7f4, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829378362666365415, guid: a8fbd896420c42947b35647ba133f7f4, type: 3}
+      propertyPath: m_TagString
+      value: Hazard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -2695619058785784247, guid: a8fbd896420c42947b35647ba133f7f4, type: 3}
@@ -3363,11 +3383,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2069359575045969438, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_fontSizeMax
-      value: 37.733547
+      value: 27.736757
       objectReference: {fileID: 0}
     - target: {fileID: 2069359575045969438, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_fontSizeMin
-      value: 18.866774
+      value: 13.868379
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269556706327435300, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417654598345238997, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3572568124839380767, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_ClearFlags
@@ -3463,6 +3491,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8299012474087084130, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: debugDoubleJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715188063259137234, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

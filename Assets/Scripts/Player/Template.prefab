@@ -106,23 +106,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugDodge
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugHover
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugWallCling
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugDoubleJump
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4290317770397571484, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4344278395715914423, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: FeedbacksList.Array.size
@@ -550,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6631482097387066730, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6982520183798222321, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: managedReferences[7899196386713534464].ZoomMode
@@ -558,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7788173626222044315, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
@@ -596,15 +596,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1344424271919820401, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0314312
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1344424271919820401, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1920547
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1344424271919820401, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -46.15752
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5087674656771569126, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_ReactionSettings.m_NoiseOffsets.x
@@ -618,17 +618,25 @@ PrefabInstance:
       propertyPath: m_ReactionSettings.m_NoiseOffsets.z
       value: 918.8915
       objectReference: {fileID: 0}
+    - target: {fileID: 5750691690779413910, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 171
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750691690779413910, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 98
+      objectReference: {fileID: 0}
     - target: {fileID: 6903740636505456195, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 17
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_fontSizeMax
-      value: 37.733547
+      value: 39.92937
       objectReference: {fileID: 0}
     - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_fontSizeMin
-      value: 18.866774
+      value: 19.964685
       objectReference: {fileID: 0}
     - target: {fileID: 6903740637532945394, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_RootOrder

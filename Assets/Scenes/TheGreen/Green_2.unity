@@ -2686,11 +2686,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4036222986459934210, guid: 827a117c068ebe04f8225e526d163fe6, type: 3}
       propertyPath: id
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4036222986459934211, guid: 827a117c068ebe04f8225e526d163fe6, type: 3}
       propertyPath: id
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4036222986459934214, guid: 827a117c068ebe04f8225e526d163fe6, type: 3}
       propertyPath: m_RootOrder
@@ -4874,6 +4874,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   maxHealth: 1
   health: 0
+  damageDealt: 0
   isInvincible: 0
   isHitstun: 0
   isStunnable: 0
@@ -8092,11 +8093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5895368976333829943, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.260291
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5895368976333829943, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5293331
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6606148987009002693, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: FeedbacksList.Array.size
@@ -8557,6 +8558,18 @@ PrefabInstance:
     - target: {fileID: 7499051872795495374, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_Name
       value: Template
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730956706387548604, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730956706387548604, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730956706387548604, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}

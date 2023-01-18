@@ -26,6 +26,7 @@ public class IntersceneStatusModel : MonoBehaviour
         {
             var checkpoints = GameObject.FindGameObjectsWithTag("CheckPoint");
             var selected = checkpoints.Where(x => x.GetComponent<CheckpointId>().id == ES3.Load<int>("checkpointId", 0)).FirstOrDefault();
+            if (selected == null) selected = checkpoints.Where(x => x.GetComponent<CheckpointId>().id == 0).FirstOrDefault();
             return selected.transform;
         }
         

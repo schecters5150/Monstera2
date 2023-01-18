@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TheGreen/Green_2.unity
     guid: eefae0128d73d79449181b52770135b6
   - enabled: 1
+    path: Assets/Scenes/TheGreen/Green_3.unity
+    guid: c97839ea33fa8b243b05c2b48e05d2fe
+  - enabled: 1
     path: Assets/Scenes/Prototypes/TilePrototype/TilePrototype.unity
     guid: 1030ea5ca26fe9147abb4a7a48bd8403
   - enabled: 0

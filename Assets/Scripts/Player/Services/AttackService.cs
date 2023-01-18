@@ -81,7 +81,7 @@ public class AttackService : MonoBehaviour
     }
     private void AttackDown()
     {
-        if (inputManager.AttackDownTriggered() && !statusModel.isAttacking)
+        if (inputManager.AttackDownTriggered() && !statusModel.isAttacking && !statusModel.isGrounded)
         {
             SwordFunctions();
             hitboxDown.SetActive(true);

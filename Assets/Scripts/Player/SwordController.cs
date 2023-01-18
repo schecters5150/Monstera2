@@ -6,12 +6,14 @@ public class SwordController : MonoBehaviour
 {
     MoveService moveService;
     AttackService attackService;
+    PlayerHealth playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         moveService = gameObject.GetComponentInParent<MoveService>();
         attackService = gameObject.GetComponentInParent<AttackService>();
+        playerHealth = gameObject.GetComponentInParent<PlayerHealth>();
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -22,6 +24,7 @@ public class SwordController : MonoBehaviour
             {
                 moveService.Bounce();
                 moveService.ResetJumps();
+                playerHealth.AddStamina(playerHealth.maxStamina / 4);
             }
             attackService.ResetDownFlag();
         }

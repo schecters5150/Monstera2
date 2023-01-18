@@ -889,8 +889,9 @@ MonoBehaviour:
   clingSpeed: 1.5
   clingJumpSpeed: 5
   jumpStaminaDeplete: 1
-  hoverStaminaDeplete: 2
+  hoverStaminaDeplete: 4
   dodgeStaminaDeplete: 3
+  previousDirection: 0
   isHovering: 0
 --- !u!114 &821645041
 MonoBehaviour:
@@ -907,7 +908,10 @@ MonoBehaviour:
   damage: 0
   swordSwingTime: 0.1
   attackDelayTime: 0.15
-  downFlag: 0
+  swordStaminaReduction: 0
+  attackLeftFlag: 0
+  attackRightFlag: 0
+  attackDownFlag: 0
   hitboxLeft: {fileID: 882863428003156977}
   hitboxRight: {fileID: 7588889546628843846}
   hitboxUp: {fileID: 300115376177606369}
