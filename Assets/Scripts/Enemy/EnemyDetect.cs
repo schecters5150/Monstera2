@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDetect : MonoBehaviour
 {
-    public bool triggered;
+    public GameObject Enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class EnemyDetect : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            triggered = true;
+            Enemy.GetComponent<EnemyStatusModel>().isInLOS = true;
         }
     }
 
@@ -30,7 +30,7 @@ public class EnemyDetect : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            triggered = false;
+            Enemy.GetComponent<EnemyStatusModel>().isInLOS = false;
         }
     }
 }

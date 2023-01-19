@@ -24,7 +24,7 @@ public class EnemyMove
         else if (moveType == MoveType.Jump)
         {
             move = new Jump();
-            move.isGrounded = enemyController.isGrounded;
+            //move.isGrounded = enemyController.isGrounded;
         }
         else if (moveType == MoveType.MoveLockHorizontal) 
         { 
@@ -32,17 +32,17 @@ public class EnemyMove
             move.startPositionY = startPositionY;
         }
         else move = new Idle();
-        move.Move(enemyController.rb, enemyController.moveSpeed);
+        //move.Move(enemyController.rb, enemyController.moveSpeed);
     }
 
     public void TriggerHitstun(float speed)
     {
-        var move = new Hitstun();
-        move.Move(enemyController.rb, speed);
+        /*var move = new Hitstun();
+        move.Move(enemyController.rb, speed);*/
     }
 }
 
-public class MoveFunction
+public class MoveFunction : MonoBehaviour
 {
     internal bool isGrounded;
     internal float startPositionY;
@@ -92,7 +92,7 @@ public class MoveHover : MoveFunction
 {
     public override void Move(Rigidbody2D rb, float speed)
     {
-        var playerPosition = GameObject.Find("Player").transform.position;
+        /*var playerPosition = GameObject.Find("Player").transform.position;
         var directionX = rb.transform.position.x > playerPosition.x ? -1 : 1;
         var directionY = rb.position.y > playerPosition.y ? -1 : 1;
         var magX = rb.position.x - playerPosition.x;
@@ -103,7 +103,9 @@ public class MoveHover : MoveFunction
         var displaceY = speed * Time.deltaTime * directionY * Mathf.Abs(Mathf.Sin(angle));
 
         Vector3 newPosition = new Vector3(rb.position.x + displaceX, rb.position.y + displaceY, 0);
-        rb.position = newPosition;
+        rb.position = newPosition;*/
+
+
     }
 }
 

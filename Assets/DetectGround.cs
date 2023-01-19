@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DetectGround : MonoBehaviour
 {
+    public EnemyStatusModel enemyStatusModel;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyStatusModel = GetComponent<EnemyStatusModel>();
     }
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class DetectGround : MonoBehaviour
     {
         if(collision.tag == "Ground")
         {
-            gameObject.GetComponentInParent<EnemyController>().isGrounded = true;
+            enemyStatusModel.isGrounded = true;
         }
     }
 
@@ -28,7 +29,7 @@ public class DetectGround : MonoBehaviour
     {
         if (collision.tag == "Ground")
         {
-            gameObject.GetComponentInParent<EnemyController>().isGrounded = false;
+            enemyStatusModel.isGrounded = false;
         }
     }
 }
