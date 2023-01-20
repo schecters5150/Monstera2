@@ -26,7 +26,12 @@ public class EnemyHealth : MonoBehaviour
     public void Update()
     {
         if (invincibilityTimer.IsUp()) enemyStatusModel.isInvincible = false;
-        if (hitstunTimer.IsUp()) enemyStatusModel.isHitstun = false;
+        if (hitstunTimer.IsUp())
+        {
+            enemyStatusModel.isHitstun = false;
+        }
+
+        if (health <= 0) Destroy(this.transform.parent.gameObject);
 
         invincibilityTimer.CalculateTime();
         hitstunTimer.CalculateTime();

@@ -32,6 +32,8 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - AstarPathfindingProject
+    - AstarPathfindingProjectEditor
     - Cinemachine
     - Lofelt.NiceVibrations
     - Lofelt.NiceVibrations.Demo
@@ -48,6 +50,7 @@ MonoBehaviour:
     - MoreMountains.Feedbacks.URP
     - MoreMountains.Tools
     - MoreMountains.Tools.Editor
+    - PackageToolsEditor
     - PsdPlugin
     - SuperTiled2Unity
     - SuperTiled2UnityEditor

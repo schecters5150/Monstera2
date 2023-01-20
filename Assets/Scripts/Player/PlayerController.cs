@@ -194,11 +194,13 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (_statusModel.isDodging)
+        if (_statusModel.isDodging && !_moveService.isHovering)
         {
-            var color = _spriteRenderer.color;
-            var timeLeft = (_timerManager.maxDodgeTime - _timerManager.dodgeTimer.GetTime()) / _timerManager.maxDodgeTime;
-            _spriteRenderer.material.color = new Color(color.r, color.g, timeLeft, timeLeft);
+            _animator.SetBool("AnimDodge", true);
+        }
+        else
+        {
+            _animator.SetBool("AnimDodge", false);
         }
     }
 

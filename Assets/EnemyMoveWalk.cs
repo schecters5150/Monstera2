@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyMoveHover : MonoBehaviour
+public class EnemyMoveWalk : MonoBehaviour
 {
     // Start is called before the first frame update
     public float hitstunSpeed;
+    public float walkSpeed;
+    public float stopDistance;
     private Rigidbody2D rb;
     public GameObject returnPosition;
-    private AIDestinationSetter aiDestiniationSetter;
     private Transform playerTransform;
     private EnemyStatusModel enemyStatusModel;
-    private AIPath aiPath;
 
     void Start()
     {
-        aiDestiniationSetter = GetComponent<AIDestinationSetter>();
-        aiPath = GetComponent<AIPath>();
         enemyStatusModel = GetComponent<EnemyStatusModel>();
         playerTransform = GameObject.Find("Player").transform;
         rb = GetComponent<Rigidbody2D>();
@@ -28,17 +26,15 @@ public class EnemyMoveHover : MonoBehaviour
     {
         if (enemyStatusModel.isHitstun)
         {
-            aiPath.enabled = false;
             HitstunMove();
         }
         else if (enemyStatusModel.isInLOS)
         {
-            aiPath.enabled = true;
-            aiDestiniationSetter.target = playerTransform;
+            Walk(playerTransform);
         }
-        else {
-            aiPath.enabled = true; 
-            aiDestiniationSetter.target = returnPosition.transform; 
+        else
+        {
+            Walk(returnPosition.transform);
         }
     }
 
@@ -61,5 +57,12 @@ public class EnemyMoveHover : MonoBehaviour
             Vector3 newPosition = new Vector3(rb.position.x, rb.position.y + hitstunSpeed * direction * Time.deltaTime, 0);
             rb.position = newPosition;
         }
+    }
+
+    private void Walk(Transform target)
+    {
+        var direction = rb.position.x > target.position.x ? -1 : 1;
+        Vector3 newPosition = new Vector3(rb.position.x + walkSpeed * direction * Time.deltaTime, rb.position.y, 0);
+        if(Mathf.Abs(rb.position.x - target.position.x) > stopDistance) rb.position = newPosition;
     }
 }

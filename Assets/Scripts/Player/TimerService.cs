@@ -5,7 +5,6 @@ using UnityEngine;
 public class Timer
 {
     private float timer;
-    private bool isUp;
     public void Trigger(float time)
     {
         timer = time;
@@ -13,17 +12,12 @@ public class Timer
 
     public void CalculateTime()
     {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            isUp = false;
-        }
-        else isUp = true;
+        if (timer > 0) timer -= Time.deltaTime;
     }
 
     public bool IsUp()
     {
-        return isUp;
+        return (timer <= 0);
     }
 
     public float GetTime()
