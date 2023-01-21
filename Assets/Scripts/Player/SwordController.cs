@@ -26,7 +26,6 @@ public class SwordController : MonoBehaviour
                 moveService.ResetJumps();
                 playerHealth.AddStamina(playerHealth.maxStamina / 4);
             }
-            attackService.ResetDownFlag();
         }
     }
 }

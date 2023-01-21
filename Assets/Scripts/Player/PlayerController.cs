@@ -136,15 +136,15 @@ public class PlayerController : MonoBehaviour
         else _animator.SetBool("AnimWalk", false);
 
         //Directionality
-        if (_controller.velocity.x < 0 && !GetComponent<AttackService>().IsAttackingAnimation() && !_statusModel.isCling)
+        if (_controller.velocity.x < 0 && !_statusModel.isAttacking && !_statusModel.isCling)
         {
             _playerSprite.flipX = true;
         }
-        if (_controller.velocity.x > 0 && !GetComponent<AttackService>().IsAttackingAnimation() && !_statusModel.isCling)
+        if (_controller.velocity.x > 0 && !_statusModel.isAttacking && !_statusModel.isCling)
         {
             _playerSprite.flipX = false;
         }
-        if (GetComponent<AttackService>().IsAttackingAnimation())
+        if (_statusModel.isAttacking)
         {
             if (GetComponent<AttackService>().attackLeftFlag)
             {
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Rotation
-        if (_controller.isGrounded || GetComponent<AttackService>().IsAttackingAnimation() || !_moveService.isHovering)
+        if (_controller.isGrounded || _statusModel.isAttacking || !_moveService.isHovering)
         {
             _playerSprite.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }

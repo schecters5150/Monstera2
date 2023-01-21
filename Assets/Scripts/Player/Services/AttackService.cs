@@ -117,29 +117,17 @@ public class AttackService : MonoBehaviour
         }
     }
 
-    public bool IsAttackingAnimation()
-    {
-        if (!timerManager.attackTimer.IsUp()) return true;
-        return false;
-    }
-
     public void ClearAttackFlags()
     {
-        if (!timerManager.attackTimer.IsUp()) { 
+        if (!statusModel.isAttacking) { 
             attackLeftFlag = false;
             attackRightFlag = false;
+            attackDownFlag = false;
         }
     }
 
     public void SetStatusModel(StatusModel statusModel)
     {
         this.statusModel = statusModel;
-    }
-
-
-
-    public void ResetDownFlag()
-    {
-        attackDownFlag = false;
     }
 }

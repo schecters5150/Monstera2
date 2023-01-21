@@ -233,7 +233,7 @@ public class MoveService : MonoBehaviour
 
     public void HoverHitBoxRotation()
     {
-        if (_controller.isGrounded || GetComponent<AttackService>().IsAttackingAnimation() || !isHovering)
+        if (_controller.isGrounded || _statusModel.isAttacking || !isHovering)
         {
             gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
