@@ -37,9 +37,13 @@ public class PlayerTimerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetInputStatus();
-        RunTimers();
+        SetInputStatus();  
         SetTimerInputs();
+    }
+
+    private void FixedUpdate()
+    {
+        RunTimers();
     }
 
     void InitiateTimers()

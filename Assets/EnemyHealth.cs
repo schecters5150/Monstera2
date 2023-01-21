@@ -33,6 +33,11 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0) Destroy(this.transform.parent.gameObject);
 
+        
+    }
+
+    public void FixedUpdate()
+    {
         invincibilityTimer.CalculateTime();
         hitstunTimer.CalculateTime();
     }

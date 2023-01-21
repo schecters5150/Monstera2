@@ -59,9 +59,18 @@ public class MoveService : MonoBehaviour
         if (!_inventoryModel.debugDoubleJump) maxJumps--;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         ControllerMove();
+    }
+
+    public void Update()
+    {
+        if (_inputManager.JumpTriggered() && jumpsLeft > 0 && !_statusModel.isDodging && !_statusModel.staminaDepleted)
+        {
+            _timerManager.jumpTimer.Trigger(maxJumpTime);
+            jumpFlag = true;
+        }
     }
 
     public void ControllerMove()
@@ -86,7 +95,7 @@ public class MoveService : MonoBehaviour
         if (_controller.velocity.x > 0) previousDirection = 1;
         else if (_controller.velocity.x < 0) previousDirection = -1;
 
-        _controller.move(velocity * Time.deltaTime);
+        _controller.move(velocity * Time.fixedDeltaTime);
     }
 
     #region Movements
@@ -108,11 +117,7 @@ public class MoveService : MonoBehaviour
         {
             velocity.x = clingJumpDirection * clingJumpSpeed;
         }
-        if (_inputManager.JumpTriggered() && jumpsLeft > 0 && !_statusModel.isDodging && !_statusModel.staminaDepleted)
-        {
-            _timerManager.jumpTimer.Trigger(maxJumpTime);
-            jumpFlag = true;
-        }
+        
         if (!_timerManager.jumpTimer.IsUp() && jumpFlag && !isHovering)
         {
             velocity.y = (maxJumpTime - _timerManager.jumpTimer.GetTime()) * jumpForce;
@@ -145,7 +150,7 @@ public class MoveService : MonoBehaviour
         {
             isHovering = false;
             angle = -.1f;
-            velocity.y += -gravity * Time.deltaTime;
+            velocity.y += -gravity * Time.fixedDeltaTime;
         }
 
         if (_controller.isGrounded && !_statusModel.isCling) DisableHover();
@@ -166,7 +171,7 @@ public class MoveService : MonoBehaviour
             velocity.y = 0;
         }
 
-        _playerHealth.ReduceStamina(dodgeStaminaDeplete * Time.deltaTime);
+        _playerHealth.ReduceStamina(dodgeStaminaDeplete * Time.fixedDeltaTime);
     }
 
     public void HitStun()
@@ -175,7 +180,7 @@ public class MoveService : MonoBehaviour
 
         var velocity = _controller.velocity;
         velocity.x = hitstunSpeed * bumpDirection;
-        _controller.move(velocity * Time.deltaTime);
+        _controller.move(velocity * Time.fixedDeltaTime);
     }
 
     public void Bump()
@@ -184,7 +189,7 @@ public class MoveService : MonoBehaviour
 
         var velocity = _controller.velocity;
         velocity.x = bumpSpeed * bumpDirection;
-        _controller.move(velocity * Time.deltaTime);
+        _controller.move(velocity * Time.fixedDeltaTime);
     }
 
     public void Bounce()

@@ -896,7 +896,7 @@ MonoBehaviour:
   hoverMod: 5
   gravity: 50
   hitstunSpeed: 20
-  jumpForce: 90
+  jumpForce: 100
   maxJumpTime: 0.18
   maxJumps: 2
   walkSpeed: 11

@@ -12,7 +12,7 @@ public class Timer
 
     public void CalculateTime()
     {
-        if (timer > 0) timer -= Time.deltaTime;
+        if (timer > 0) timer -= Time.fixedDeltaTime;
     }
 
     public bool IsUp()
