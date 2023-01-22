@@ -3748,6 +3748,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Template
       objectReference: {fileID: 0}
+    - target: {fileID: 8299012474087084130, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: debugDodge
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299012474087084130, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: debugHover
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299012474087084130, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: debugWallCling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299012474087084130, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: debugDoubleJump
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8715188063259137234, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3981,7 +3997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2076848192490701992, guid: be7c3e74b3e90be48baf22820f35db9b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.204075
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2076848192490701992, guid: be7c3e74b3e90be48baf22820f35db9b, type: 3}
       propertyPath: m_LocalRotation.w

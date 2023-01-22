@@ -11,7 +11,6 @@ public class SaveZone : MonoBehaviour
     public PlayerHealth playerHealth;
     public IntersceneStatusModel intersceneStatusModel;
 
-    private bool allowSave;
 
 
     // Start is called before the first frame update
@@ -41,7 +40,6 @@ public class SaveZone : MonoBehaviour
         if (collision.tag == "Player")
         {
             promptText.SetActive(true);
-            allowSave = true;
         }
     }
 
@@ -50,7 +48,6 @@ public class SaveZone : MonoBehaviour
         if (collision.tag == "Player")
         {
             promptText.SetActive(false);
-            allowSave = false;
         }
     }
 

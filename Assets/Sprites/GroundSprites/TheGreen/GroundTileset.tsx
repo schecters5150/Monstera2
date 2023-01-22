@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.9" tiledversion="1.9.2" name="GroundTileset" tilewidth="64" tileheight="64" tilecount="34" columns="17">
- <image source="GroundSpritesheet.png" width="1088" height="128"/>
+<tileset version="1.9" tiledversion="1.9.2" name="GroundTileset" tilewidth="64" tileheight="64" tilecount="36" columns="18">
+ <image source="GroundSpritesheet.png" width="1152" height="128"/>
  <tile id="0">
   <properties>
    <property name="unity:tag" value="Ground"/>
   </properties>
   <objectgroup draworder="index" id="3">
    <object id="4" x="30.125" y="0" width="33.875" height="63.875"/>
+   <object id="5" x="30.0902" y="0" width="33.9098" height="64"/>
   </objectgroup>
  </tile>
  <tile id="1">
@@ -46,7 +47,8 @@
    <property name="unity:tag" value="Ground"/>
   </properties>
   <objectgroup draworder="index" id="2">
-   <object id="1" x="-1.25" y="-1.625" width="65.75" height="66.625"/>
+   <object id="2" x="0.110259" y="-0.110259" width="63.8401" height="33.7393"/>
+   <object id="3" x="0" y="0" width="64" height="33.6769"/>
   </objectgroup>
  </tile>
  <tile id="6">
@@ -98,6 +100,9 @@
   <properties>
    <property name="unity:tag" value="Ground"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="-1.21285" y="-0.441037" width="35.1727" height="64.5017"/>
+  </objectgroup>
  </tile>
  <tile id="13">
   <properties>
@@ -119,17 +124,18 @@
   </objectgroup>
  </tile>
  <tile id="17">
-  <properties>
-   <property name="unity:tag" value="Ground"/>
-  </properties>
   <objectgroup draworder="index" id="2">
-   <object id="1" x="29.5" y="-1.25" width="35.375" height="65.875"/>
+   <object id="1" x="-0.441037" y="-0.220519" width="34.2906" height="64.1709"/>
+   <object id="2" x="-0.661556" y="-0.220519" width="64.7222" height="34.0701"/>
   </objectgroup>
  </tile>
  <tile id="18">
   <properties>
    <property name="unity:tag" value="Ground"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="29.5" y="-1.25" width="35.375" height="65.875"/>
+  </objectgroup>
  </tile>
  <tile id="19">
   <properties>
@@ -191,7 +197,21 @@
    <property name="unity:tag" value="Ground"/>
   </properties>
   <objectgroup draworder="index" id="2">
+   <object id="1" x="-0.882074" y="-0.882074" width="34.5112" height="64.7222"/>
+  </objectgroup>
+ </tile>
+ <tile id="31">
+  <properties>
+   <property name="unity:tag" value="Ground"/>
+  </properties>
+  <objectgroup draworder="index" id="2">
    <object id="1" x="-0.75" y="-1" width="35" height="65.5"/>
+  </objectgroup>
+ </tile>
+ <tile id="35">
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="30.1008" y="0" width="33.8992" height="64"/>
+   <object id="3" x="0" y="0" width="64" height="33.8992"/>
   </objectgroup>
  </tile>
 </tileset>

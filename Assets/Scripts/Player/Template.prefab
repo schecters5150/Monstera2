@@ -106,23 +106,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugDodge
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugHover
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugWallCling
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugDoubleJump
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290317770397571484, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4344278395715914423, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: FeedbacksList.Array.size
@@ -556,10 +552,6 @@ PrefabInstance:
       propertyPath: managedReferences[7899196386713534464].ZoomMode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7788173626222044315, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
 --- !u!4 &6628454305913250090 stripped
@@ -632,11 +624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_fontSizeMax
-      value: 39.92937
+      value: 33.804173
       objectReference: {fileID: 0}
     - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_fontSizeMin
-      value: 19.964685
+      value: 16.902086
       objectReference: {fileID: 0}
     - target: {fileID: 6903740637532945394, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_RootOrder

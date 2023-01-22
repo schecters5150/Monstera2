@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitstunSpeed: 8
   walkSpeed: 4
-  stopDistance: 0
+  stopDistance: 0.1
   returnPosition: {fileID: 1301015126715263752}
 --- !u!1 &1301015125871343129
 GameObject:

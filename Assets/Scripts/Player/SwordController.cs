@@ -18,7 +18,7 @@ public class SwordController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "Enemy")
+        if (collider.tag == "Enemy" || collider.tag == "BouncePad")
         {
             if (attackService.attackDownFlag)
             {

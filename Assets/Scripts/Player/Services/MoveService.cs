@@ -13,6 +13,7 @@ public class MoveService : MonoBehaviour
     public float gravity;
     public float hitstunSpeed;
     public float jumpForce;
+    public float shortJumpRatio;
     public float maxJumpTime;
     public int maxJumps;
     public float walkSpeed;
@@ -111,6 +112,14 @@ public class MoveService : MonoBehaviour
         if (_statusModel.isAttacking && _statusModel.isGrounded) velocity.x = 0;
     }
 
+    /*var inputX = _inputManager.MovementX();
+            if (inputX == 0) walkSpeed -= walkAcceleration;
+            else walkSpeed += walkAcceleration* inputX;
+
+            if (Mathf.Abs(walkSpeed) > maxWalkSpeed) walkSpeed = maxWalkSpeed* inputX;
+
+    velocity.x = walkSpeed;*/
+
     public void Jump(ref Vector3 velocity)
     {
         if (_statusModel.isClingJump)
@@ -122,7 +131,7 @@ public class MoveService : MonoBehaviour
         {
             velocity.y = (maxJumpTime - _timerManager.jumpTimer.GetTime()) * jumpForce;
         }
-        if (jumpFlag && !_inputManager.JumpIsPressed() && _timerManager.jumpTimer.GetTime() < maxJumpTime * .3)
+        if (jumpFlag && !_inputManager.JumpIsPressed() && _timerManager.jumpTimer.GetTime() < maxJumpTime * shortJumpRatio)
         {
             disableHover = false;
             jumpFlag = false;
@@ -136,7 +145,7 @@ public class MoveService : MonoBehaviour
         if (_inputManager.HoverIsPressed() && !_controller.isGrounded && !disableHover && !_statusModel.staminaDepleted)
         {
             CalculateHover(ref velocity, gravity);
-            _playerHealth.ReduceStamina(hoverStaminaDeplete * Time.deltaTime);
+            _playerHealth.ReduceStamina(hoverStaminaDeplete * Time.fixedDeltaTime);
             isHovering = true;
         }
         else if (_statusModel.isCling && velocity.y < 0 && _inventoryModel.debugWallCling)
