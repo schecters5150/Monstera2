@@ -62,4 +62,12 @@ public class EnemyMoveHover : MonoBehaviour
             rb.position = newPosition;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Ground")
+        {
+            Debug.Log("beep boop");
+        }
+    }
 }

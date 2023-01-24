@@ -552,6 +552,14 @@ PrefabInstance:
       propertyPath: managedReferences[7899196386713534464].ZoomMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8038326428169519794, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038326428169519794, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2067309149
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
 --- !u!4 &6628454305913250090 stripped
@@ -570,66 +578,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 6628454305913250090}
-    - target: {fileID: 220306158392521142, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_Lens.FieldOfView
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 850244666289071124, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 850244666289071124, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 850244666289071124, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344424271919820401, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344424271919820401, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344424271919820401, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5087674656771569126, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_ReactionSettings.m_NoiseOffsets.x
-      value: 477.64133
-      objectReference: {fileID: 0}
-    - target: {fileID: 5087674656771569126, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_ReactionSettings.m_NoiseOffsets.y
-      value: 241.38632
-      objectReference: {fileID: 0}
-    - target: {fileID: 5087674656771569126, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_ReactionSettings.m_NoiseOffsets.z
-      value: 918.8915
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750691690779413910, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 171
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750691690779413910, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 98
-      objectReference: {fileID: 0}
-    - target: {fileID: 6903740636505456195, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 33.804173
-      objectReference: {fileID: 0}
-    - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 16.902086
-      objectReference: {fileID: 0}
     - target: {fileID: 6903740637532945394, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -678,156 +626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI and Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 8281165140097932889, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6903740638242805514, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-    - {fileID: 6903740637866715641, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
 --- !u!4 &2069359573794923188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6903740637532945394, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
   m_PrefabInstance: {fileID: 4861869004891740486}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2069359573993828530 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6903740637866715636, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-  m_PrefabInstance: {fileID: 4861869004891740486}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4861869005705865001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069359573993828530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a132ebb16d23354b841b6618f4fa0e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.051016808, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
-  colorMode: 0
-  secondColor: {r: 1, g: 1, b: 1, a: 1}
-  materialProperties:
-    FloatProperties: []
-  materialType: Default
-  materialEffect: 0
-  materialProperty1: 0
-  materialProperty2: 0
-  materialProperty3: 0
-  keepBorderAspectRatio: 0
-  spriteBorderScaleFallback:
-    screenConfigName: 
-    OptimizedSize: {x: 1, y: 1}
-    MinSize: {x: 0, y: 0}
-    MaxSize: {x: 3, y: 3}
-    ModX:
-      ExponentialScale: 1
-      SizeModifiers:
-      - Mode: 0
-        Impact: 1
-    ModY:
-      ExponentialScale: 1
-      SizeModifiers:
-      - Mode: 0
-        Impact: 1
-  customBorderScales:
-    items: []
-  fallbackSpriteSettings:
-    Sprite: {fileID: 0}
-    ColorMode: 0
-    PrimaryColor: {r: 1, g: 0.051016808, b: 0, a: 1}
-    SecondaryColor: {r: 1, g: 1, b: 1, a: 1}
-    screenConfigName: 
-  customSpriteSettings:
-    items: []
---- !u!1 &2069359574504820302 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6903740638242805512, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
-  m_PrefabInstance: {fileID: 4861869004891740486}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4861869003766852496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069359574504820302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a132ebb16d23354b841b6618f4fa0e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.24528301, g: 0.17637639, b: 0.107600555, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
-  colorMode: 0
-  secondColor: {r: 1, g: 1, b: 1, a: 1}
-  materialProperties:
-    FloatProperties: []
-  materialType: Default
-  materialEffect: 0
-  materialProperty1: 0
-  materialProperty2: 0
-  materialProperty3: 0
-  keepBorderAspectRatio: 0
-  spriteBorderScaleFallback:
-    screenConfigName: 
-    OptimizedSize: {x: 1, y: 1}
-    MinSize: {x: 0, y: 0}
-    MaxSize: {x: 3, y: 3}
-    ModX:
-      ExponentialScale: 1
-      SizeModifiers:
-      - Mode: 0
-        Impact: 1
-    ModY:
-      ExponentialScale: 1
-      SizeModifiers:
-      - Mode: 0
-        Impact: 1
-  customBorderScales:
-    items: []
-  fallbackSpriteSettings:
-    Sprite: {fileID: 0}
-    ColorMode: 0
-    PrimaryColor: {r: 0.24528301, g: 0.17637639, b: 0.107600555, a: 1}
-    SecondaryColor: {r: 1, g: 1, b: 1, a: 1}
-    screenConfigName: 
-  customSpriteSettings:
-    items: []

@@ -145,13 +145,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4861869004062950310, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: walkAcceleration
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5238945432794135890, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5895368976333829943, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7448384315553257785, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_RootOrder

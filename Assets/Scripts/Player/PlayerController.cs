@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
         {
             if (_statusModel.isDodging) return;
             _moveService.SetBumpDirection(GetBumpDirection(collider));
-            _timerManager.disableMoveTimer.Trigger(_timerManager.maxHitstunTime * .25f);
             _timerManager.invincibilityTimer.Trigger(_timerManager.maxInvincibilityTime);
             _timerManager.hitstunTimer.Trigger(_timerManager.maxHitstunTime);
         }
@@ -112,6 +111,9 @@ public class PlayerController : MonoBehaviour
             enemySemiphor = true;
             _onHitFeedback.GetComponent<MMFeedbacks>().PlayFeedbacks();
             _playerHealth.ReduceHealth(collider.gameObject.GetComponent<EnemyController>().damageDealt);
+            _timerManager.invincibilityTimer.Trigger(_timerManager.maxInvincibilityTime);
+            _moveService.SetBumpDirection(GetBumpDirection(collider));
+            _timerManager.hitstunTimer.Trigger(_timerManager.maxHitstunTime);
         }
     }
     private void OnTriggerExit2D(Collider2D collider)

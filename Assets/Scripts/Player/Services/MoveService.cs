@@ -17,6 +17,8 @@ public class MoveService : MonoBehaviour
     public float maxJumpTime;
     public int maxJumps;
     public float walkSpeed;
+    public float maxWalkSpeed;
+    public float walkAcceleration;
     public float bumpSpeed;
     public float clingSpeed;
     public float clingJumpSpeed;
@@ -62,7 +64,9 @@ public class MoveService : MonoBehaviour
 
     public void FixedUpdate()
     {
-        ControllerMove();
+        if(!_statusModel.isHitstun) ControllerMove();
+        HitStun();
+        Bump();
     }
 
     public void Update()
@@ -83,9 +87,7 @@ public class MoveService : MonoBehaviour
             Jump(ref velocity);
             AirMovement(ref velocity);
             Dodge(ref velocity);
-            Walk(ref velocity);
-            HitStun();
-            Bump();
+            Walk(ref velocity);           
         }
         else
         {
@@ -102,23 +104,18 @@ public class MoveService : MonoBehaviour
     #region Movements
     public void Walk(ref Vector3 velocity)
     {
-        if (!isHovering && !_statusModel.isDodging && !_statusModel.isClingJump)
+        if (!isHovering && !_statusModel.isDodging && !_statusModel.isClingJump && !_statusModel.isHitstun)
         {
             var inputX = _inputManager.MovementX();
-            if (inputX < 0) velocity.x = -walkSpeed;
-            else if (inputX > 0) velocity.x = walkSpeed;
-            else velocity.x = 0;
+            if (inputX == 0 && Mathf.Abs(walkSpeed) > 1) walkSpeed -= GetDirectionX() * walkAcceleration;
+            else walkSpeed += walkAcceleration * inputX;
+
+            if (Mathf.Abs(walkSpeed) > maxWalkSpeed) walkSpeed = maxWalkSpeed * inputX;
+            if (Mathf.Abs(walkSpeed) < walkAcceleration) walkSpeed = 0;
+            velocity.x = walkSpeed;
         }
         if (_statusModel.isAttacking && _statusModel.isGrounded) velocity.x = 0;
     }
-
-    /*var inputX = _inputManager.MovementX();
-            if (inputX == 0) walkSpeed -= walkAcceleration;
-            else walkSpeed += walkAcceleration* inputX;
-
-            if (Mathf.Abs(walkSpeed) > maxWalkSpeed) walkSpeed = maxWalkSpeed* inputX;
-
-    velocity.x = walkSpeed;*/
 
     public void Jump(ref Vector3 velocity)
     {
@@ -126,7 +123,7 @@ public class MoveService : MonoBehaviour
         {
             velocity.x = clingJumpDirection * clingJumpSpeed;
         }
-        
+
         if (!_timerManager.jumpTimer.IsUp() && jumpFlag && !isHovering)
         {
             velocity.y = (maxJumpTime - _timerManager.jumpTimer.GetTime()) * jumpForce;
@@ -185,7 +182,7 @@ public class MoveService : MonoBehaviour
 
     public void HitStun()
     {
-        if (!_statusModel.isHitstun && !_statusModel.disableMove) return;
+        if (!_statusModel.isHitstun) return;
 
         var velocity = _controller.velocity;
         velocity.x = hitstunSpeed * bumpDirection;
@@ -271,7 +268,7 @@ public class MoveService : MonoBehaviour
     {
         jumpsLeft = maxJumps;
         isHovering = false;
-        if(!_inputManager.HoverIsPressed()) disableHover = false;
+        if (!_inputManager.HoverIsPressed()) disableHover = false;
     }
     public void MoveToLastCheckpoint()
     {
