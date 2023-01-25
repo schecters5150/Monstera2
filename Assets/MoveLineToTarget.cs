@@ -35,13 +35,13 @@ public class MoveLineToTarget : MonoBehaviour
         {
             velocityX = -Mathf.Cos(angle) * speed * Time.fixedDeltaTime;
         }
-        if (playerObject.transform.position.y > transform.position.y)
+        if (playerObject.transform.position.x > transform.position.x)
         {
-            velocityY = Mathf.Cos(angle) * speed * Time.fixedDeltaTime;
+            velocityY = Mathf.Sin(angle) * speed * Time.fixedDeltaTime;
         }
         else
         {
-            velocityY = -Mathf.Cos(angle) * speed * Time.fixedDeltaTime;
+            velocityY = -Mathf.Sin(angle) * speed * Time.fixedDeltaTime;
         }
     }
 
@@ -53,8 +53,7 @@ public class MoveLineToTarget : MonoBehaviour
 
     private void Move()
     {
-        
-        
+            
         Vector3 newPosition = new Vector3(rb.position.x + velocityX, rb.position.y + velocityY, 0);
         rb.position = newPosition;
 

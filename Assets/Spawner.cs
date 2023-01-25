@@ -13,7 +13,8 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         intervalTimer = new Timer();
-        enemyStatusModel = GetComponent<EnemyStatusModel>();   
+        enemyStatusModel = GetComponent<EnemyStatusModel>();
+        intervalTimer.Trigger(interval);
     }
 
     // Update is called once per frame
