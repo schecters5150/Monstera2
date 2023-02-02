@@ -161,6 +161,9 @@
   <properties>
    <property name="unity:tag" value="Ground"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0.960881" y="0.960881" width="62.0782" height="61.9715"/>
+  </objectgroup>
  </tile>
  <tile id="24">
   <properties>

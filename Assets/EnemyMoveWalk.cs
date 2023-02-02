@@ -13,9 +13,11 @@ public class EnemyMoveWalk : MonoBehaviour
     public GameObject returnPosition;
     private Transform playerTransform;
     private EnemyStatusModel enemyStatusModel;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         enemyStatusModel = GetComponent<EnemyStatusModel>();
         playerTransform = GameObject.Find("Player").transform;
         rb = GetComponent<Rigidbody2D>();
