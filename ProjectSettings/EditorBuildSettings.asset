@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheGreen/TheGreen4.unity
     guid: 1d34a0883e12b2a4e97be7222fa34be8
+  - enabled: 1
+    path: Assets/Scenes/TheGreen/TheGreen5.unity
+    guid: 7f1b2edb9460f394ca09d5f981126f55
   m_configObjects: {}
