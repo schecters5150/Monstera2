@@ -6,7 +6,6 @@ using Pathfinding;
 public class MoveTarget : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float hitstunSpeed;
     private AIDestinationSetter aiDestiniationSetter;
     public GameObject targetTransform;
     private AIPath aiPath;
@@ -21,6 +20,7 @@ public class MoveTarget : MonoBehaviour
     {
         if (collider.tag == "TargetTrigger")
         {
+            var test = collider.gameObject.GetComponent<TargetParams>(); 
             aiDestiniationSetter.target = collider.gameObject.GetComponent<TargetParams>().NextTarget.transform;
         }
     }
