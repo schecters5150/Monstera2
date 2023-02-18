@@ -14,8 +14,6 @@ TagManager:
   - LoadTrigger
   - SaveZone
   - BouncePad
-  - TargetTrigger
-  - Platform
   layers:
   - Default
   - TransparentFX
@@ -31,7 +29,7 @@ TagManager:
   - Background
   - Foreground
   - SaveZone
-  - Platform
+  - 
   - 
   - 
   - 

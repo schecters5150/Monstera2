@@ -690,19 +690,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b005891a5d1c45cc8cea8c713a8bfe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreOneWayPlatformsThisFrame: 1
-  _skinWidth: 0.107
+  ignoreOneWayPlatformsThisFrame: 0
+  _skinWidth: 0.02
   platformMask:
     serializedVersion: 2
-    m_Bits: 16393
+    m_Bits: 9
   triggerMask:
     serializedVersion: 2
-    m_Bits: 16383
+    m_Bits: 2147483647
   oneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 0
-  slopeLimit: 0
-  jumpingThreshold: 0
+  slopeLimit: 11.1
+  jumpingThreshold: 0.07
   slopeSpeedMultiplier:
     serializedVersion: 2
     m_Curve:

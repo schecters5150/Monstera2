@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 2076848192159060061}
   - component: {fileID: 2076848192159060062}
   - component: {fileID: 2076848192159060063}
-  - component: {fileID: 6576134613097435125}
   m_Layer: 7
   m_Name: EnemyParams
   m_TagString: Enemy
@@ -323,7 +322,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   autoRepath:
     mode: 2
     interval: 0.5
@@ -388,19 +387,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &6576134613097435125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076848192159060057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6559e241ec962e045b5bf22db1fdf1c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Constraints: 0
 --- !u!1 &2076848192490701993
 GameObject:
   m_ObjectHideFlags: 0
