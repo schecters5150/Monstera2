@@ -17,6 +17,7 @@ public class AttackService : MonoBehaviour
     public GameObject hitboxUp;
     public GameObject hitboxDown;
     public GameObject _playerSprite;
+    public AudioClip hitSound;
     
 
     private InputManager inputManager;
@@ -24,6 +25,7 @@ public class AttackService : MonoBehaviour
     private StatusModel statusModel;
     private PlayerTimerManager timerManager;
     private PlayerHealth healthService;
+    private AudioSource audioSource;
 
 
     public void Start()
@@ -33,6 +35,7 @@ public class AttackService : MonoBehaviour
         animator = GetComponent<Animator>();
         timerManager = GetComponent<PlayerTimerManager>();
         healthService = GetComponent<PlayerHealth>();
+        audioSource = GetComponent<AudioSource>();
     }
     public void Update()
     {
@@ -92,6 +95,7 @@ public class AttackService : MonoBehaviour
 
     private void SwordFunctions()
     {
+        AudioSource.PlayClipAtPoint(hitSound, transform.position);
         timerManager.attackTimer.Trigger(swordSwingTime);
         healthService.ReduceStamina(swordStaminaReduction);
         ResetSpriteRotation();
