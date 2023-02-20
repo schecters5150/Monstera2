@@ -578,6 +578,14 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 6628454305913250090}
+    - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 46.80578
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 23.40289
+      objectReference: {fileID: 0}
     - target: {fileID: 6903740637532945394, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_RootOrder
       value: 0
