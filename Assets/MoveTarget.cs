@@ -12,8 +12,8 @@ public class MoveTarget : MonoBehaviour
 
     void Start()
     {
-        aiDestiniationSetter = GetComponent<AIDestinationSetter>();
-        aiPath = GetComponent<AIPath>();
+        aiDestiniationSetter = GetComponentInParent<AIDestinationSetter>();
+        aiPath = GetComponentInParent<AIPath>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
