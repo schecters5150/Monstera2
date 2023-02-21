@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="Ground" color="#a0a0a4">
+  <property name="unity:IsTrigger" type="bool" default="false"/>
+ </objecttype>
+ <objecttype name="Hazard" color="#a0a0a4">
+  <property name="unity:IsTrigger" type="bool" default="true"/>
+ </objecttype>
+</objecttypes>
