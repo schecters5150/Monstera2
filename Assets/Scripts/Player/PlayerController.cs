@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject _playerSpriteObject;
 
     public float dodgeGateRefresh;
+    private bool inZoomOutZone;
     private bool dodgeGateSemiphor = false;
     private SpriteRenderer _playerSprite;
 
@@ -115,6 +116,10 @@ public class PlayerController : MonoBehaviour
             _moveService.SetBumpDirection(GetBumpDirection(collider));
             _timerManager.hitstunTimer.Trigger(_timerManager.maxHitstunTime);
         }
+        if (collider.tag == "ZoomOutZone")
+        {
+            inZoomOutZone = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
@@ -126,6 +131,10 @@ public class PlayerController : MonoBehaviour
         if (collider.tag == "Enemy")
         {
             enemySemiphor = false;
+        }
+        if (collider.tag == "ZoomOutZone")
+        {
+            inZoomOutZone = false;
         }
     }
 
@@ -176,7 +185,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Zooms
-        if (_inputManager.ZoomIsPressed())
+        if (_inputManager.ZoomIsPressed() || inZoomOutZone)
         {
             _zoomInFeedback.GetComponent<MMFeedbacks>().PlayFeedbacks();
         }

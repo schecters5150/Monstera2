@@ -84,4 +84,13 @@ public class PlayerHealth : MonoBehaviour
         if (stamina > 0) statusModel.staminaDepleted = false;
         else statusModel.staminaDepleted = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.tag == "StaminaRegen")
+        {
+            stamina = maxStamina;
+            //Destroy(collider.transform.gameObject);
+        }
+    }
 }
