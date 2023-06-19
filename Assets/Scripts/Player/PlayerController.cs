@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             enemySemiphor = true;
             _onHitFeedback.GetComponent<MMFeedbacks>().PlayFeedbacks();
-            _playerHealth.ReduceHealth(collider.gameObject.GetComponent<EnemyController>().damageDealt);
+            _playerHealth.ReduceHealth(collider.gameObject.GetComponent<EnemyHitbox>().damage);
             _timerManager.invincibilityTimer.Trigger(_timerManager.maxInvincibilityTime);
             _moveService.SetBumpDirection(GetBumpDirection(collider));
             _timerManager.hitstunTimer.Trigger(_timerManager.maxHitstunTime);
