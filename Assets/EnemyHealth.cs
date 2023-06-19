@@ -49,8 +49,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void TriggerHitstun()
     {
-        hitstunTimer.Trigger(hitstunTime);
-        enemyStatusModel.isHitstun = true;
+        if (enemyStatusModel.isStunnable)
+        {
+            hitstunTimer.Trigger(hitstunTime);
+            enemyStatusModel.isHitstun = true;
+        }
     }
 
     public void TriggerInvincibility()
@@ -67,7 +70,7 @@ public class EnemyHealth : MonoBehaviour
             TriggerHitstun();
             TriggerInvincibility();
         }
-        if (collision.tag == "Player" && collision.transform.parent.gameObject.name == "Player")
+        if (collision.tag == "Player")
         {
             TriggerHitstun();
         }

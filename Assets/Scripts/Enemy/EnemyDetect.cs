@@ -18,7 +18,7 @@ public class EnemyDetect : MonoBehaviour
         Enemy = this.transform.parent.gameObject;
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.tag == "Player")
         {

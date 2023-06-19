@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject spawnedObject;
+    public GameObject spawningObject;
     private EnemyStatusModel enemyStatusModel;
     public float interval;
 
@@ -13,7 +14,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         intervalTimer = new Timer();
-        enemyStatusModel = GetComponent<EnemyStatusModel>();
+        enemyStatusModel = spawningObject.GetComponent<EnemyStatusModel>();
         intervalTimer.Trigger(interval);
     }
 

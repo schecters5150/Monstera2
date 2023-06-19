@@ -6,7 +6,6 @@ using Assets.Scripts.Enemy;
 
 public class EnemyController : MonoBehaviour
 {
-    public bool isStunnable;
     public int damageDealt;
     public GameObject healthObj;
 
@@ -19,9 +18,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemyStatusModel = GetComponentInParent<EnemyStatusModel>();
-        enemyHealth = healthObj.GetComponent<EnemyHealth>();
-
-        enemyStatusModel.isStunnable = isStunnable;
+        if (healthObj != null) enemyHealth = healthObj.GetComponent<EnemyHealth>();
     }
 
 
@@ -36,14 +33,14 @@ public class EnemyController : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            if (isStunnable) enemyHealth.TriggerHitstun();
+            if (healthObj == null) if (enemyStatusModel.isStunnable) enemyHealth.TriggerHitstun();
         }
         if (collider.tag == "Ground") enemyStatusModel.isGrounded = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (!enemyStatusModel.isInvincible) enemyHealth.HitDetection(collider);
+        if (healthObj == null) if (!enemyStatusModel.isInvincible) enemyHealth.HitDetection(collider);
     }
 
     private void OnTriggerExit2D(Collider2D collider)
