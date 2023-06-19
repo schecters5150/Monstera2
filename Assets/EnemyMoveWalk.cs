@@ -16,7 +16,7 @@ public class EnemyMoveWalk : MonoBehaviour
 
     void Start()
     {
-        enemyStatusModel = GetComponent<EnemyStatusModel>();
+        enemyStatusModel = GetComponentInParent<EnemyStatusModel>();
         playerTransform = GameObject.Find("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }

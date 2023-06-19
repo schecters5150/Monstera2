@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDetect : MonoBehaviour
 {
-    public GameObject Enemy;
+    private GameObject Enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class EnemyDetect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Enemy = this.transform.parent.gameObject;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
