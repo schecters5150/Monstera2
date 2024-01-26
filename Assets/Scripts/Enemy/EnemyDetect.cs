@@ -9,13 +9,13 @@ public class EnemyDetect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Enemy = this.transform.parent.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Enemy = this.transform.parent.gameObject;
+        
     }
 
     void OnTriggerStay2D(Collider2D collider)

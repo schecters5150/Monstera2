@@ -21,7 +21,6 @@ public class Projectile : MonoBehaviour
         if(collider.tag == "Player" || collider.tag == "Ground")
         {
             Destroy(this.gameObject);
-
         }
     }
 }
