@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     private EnemyStatusModel enemyStatusModel;
     public float interval;
 
-    private Timer intervalTimer;
+    public Timer intervalTimer;
     void Start()
     {
         intervalTimer = new Timer();

@@ -51,8 +51,6 @@ MonoBehaviour:
     - MoreMountains.Tools
     - MoreMountains.Tools.Editor
     - PackageToolsEditor
-    - PPv2URPConverters
-    - PsdPlugin
     - SuperTiled2Unity
     - SuperTiled2UnityEditor
     - TheraBytes.BetterUi.Editor

@@ -27,7 +27,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7448384315553257785}
   m_RootOrder: 2
@@ -44,63 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.3
-  m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 0
+  m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 000000005da2387b3750dbc6f5b421f8
   m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
   m_ShadowIntensity: 0.75
-  m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
-  m_Vertices:
-  - position: {x: 0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.9985302, y: 0.9985302, z: 0}
-    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.99853003, y: -0.9985304, z: 0}
-    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: 0, y: 0, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
-  m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 1
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -137,7 +98,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.843453, y: 32.710213, z: 36.15752}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2069359573794923188}
   - {fileID: 6628454305913250090}
@@ -212,33 +172,29 @@ PrefabInstance:
       propertyPath: managedReferences[7899196386713534465].ZoomTransitionDuration
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 2794179695808667721, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
-      propertyPath: m_Size.y
-      value: 1.0319611
-      objectReference: {fileID: 0}
-    - target: {fileID: 2794179695808667721, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.08401948
-      objectReference: {fileID: 0}
     - target: {fileID: 3170040046067645724, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugDodge
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugHover
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
+      propertyPath: debugDeflect
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugWallCling
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: debugDoubleJump
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4344278395715914423, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: FeedbacksList.Array.size
@@ -666,11 +622,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6631482097387066730, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6982520183798222321, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: managedReferences[7899196386713534464].ZoomMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038326428169519794, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5398215765863597648, guid: 2e5dc414d2e25404ca15e4d9d6dda78d, type: 3}
+    - target: {fileID: 8038326428169519794, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8038326428169519794, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: m_SortingLayer
@@ -680,7 +644,20 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 2067309149
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8038326428169519794, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 8038326428169519794, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 8439729663423222605, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1207363365257077420, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
 --- !u!4 &6628454305913250090 stripped
 Transform:
@@ -695,8 +672,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 7448384315553257785}
     m_Modifications:
     - target: {fileID: 136329384705335994, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136329384705335994, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136329384705335994, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 220306158392521142, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_Follow
@@ -704,11 +689,27 @@ PrefabInstance:
       objectReference: {fileID: 6628454305913250090}
     - target: {fileID: 850244666289071124, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055381942562432548, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2055381942562432548, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055381942562432548, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014472033872279750, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 194.53127
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014472033872279750, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 3.8906252
       objectReference: {fileID: 0}
     - target: {fileID: 5568688747829313789, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -716,11 +717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_fontSizeMax
-      value: 46.401283
+      value: 43.165333
       objectReference: {fileID: 0}
     - target: {fileID: 6903740636603010904, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_fontSizeMin
-      value: 23.200642
+      value: 21.582666
       objectReference: {fileID: 0}
     - target: {fileID: 6903740637532945394, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_RootOrder

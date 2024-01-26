@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyMoveAirDirect : MonoBehaviour
@@ -44,9 +44,9 @@ public class EnemyMoveAirDirect : MonoBehaviour
         var direction = new Vector3(0, 0, 0);
         var x = target.position.x - rb.position.x;
         var y = target.position.y - rb.position.y;
-        var scalar = math.sqrt(x * x + y * y);
-        direction.x = x / scalar;
-        direction.y = y / scalar;
+        var scalar = Math.Sqrt(x * x + y * y);
+        direction.x = x / (float) scalar;
+        direction.y = y / (float)scalar;
         return direction;
     }
     private void Move()

@@ -192,7 +192,10 @@ public class PlayerController : MonoBehaviour
         else _zoomOutFeedback.GetComponent<MMFeedbacks>().PlayFeedbacks();
 
         //Hover
-        if(_moveService.isHovering) _animator.SetBool("AnimHover", true);
+        if (_moveService.isHovering)
+        {
+            _animator.SetBool("AnimHover", true);
+        }
         else if (!_controller.isGrounded)
         {
             _animator.SetBool("AnimFall", true);
@@ -204,7 +207,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("AnimFall", false);
         }
 
-
+        //Dodge
         if (_statusModel.isDodging && !_moveService.isHovering)
         {
             _animator.SetBool("AnimDodge", true);
@@ -213,6 +216,13 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetBool("AnimDodge", false);
         }
+
+        //Wall cling
+        if (_statusModel.isCling)
+        {
+            _animator.SetBool("AnimWallCling", true);
+        }
+        else { _animator.SetBool("AnimWallCling", false); }
     }
 
     public bool IsInAttackAnimation()
