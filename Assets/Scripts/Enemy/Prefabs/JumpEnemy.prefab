@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063f0d9c571a75641a55e52804c25435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatusModel: {fileID: 0}
 --- !u!61 &2150553934866996579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -219,19 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b6046fad76ac478bc0965639d4bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDetect: {fileID: 8205168357264998821}
-  moveType: 2
-  moveSpeed: 5
-  rb: {fileID: 0}
-  maxHealth: 10
-  health: 0
-  isInvincible: 0
-  isHitstun: 0
   isStunnable: 1
-  maxStunTimer: 0.2
-  stunTimer: 0
-  stunSpeed: 5
-  isGrounded: 0
+  damageDealt: 0
 --- !u!1 &8205168357264998823
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77a43bdd60a2d44eb790aae9fe90357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggered: 0
+  Enemy: {fileID: 0}
 --- !u!50 &8205168357264998843
 Rigidbody2D:
   serializedVersion: 4

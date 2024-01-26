@@ -95,7 +95,8 @@ public class MoveService : MonoBehaviour
             velocity.y = 0;
         }
 
-        if (_controller.velocity.x > 0) previousDirection = 1;
+        if (_statusModel.isClingJump) previousDirection = clingJumpDirection;
+        else if (_controller.velocity.x > 0) previousDirection = 1;
         else if (_controller.velocity.x < 0) previousDirection = -1;
 
         _controller.move(velocity * Time.fixedDeltaTime);
@@ -104,10 +105,13 @@ public class MoveService : MonoBehaviour
     #region Movements
     public void Walk(ref Vector3 velocity)
     {
-        if (!isHovering && !_statusModel.isDodging && !_statusModel.isClingJump && !_statusModel.isHitstun)
+        if (!isHovering && !_statusModel.isDodging  && !_statusModel.isHitstun)
         {
             var inputX = _inputManager.MovementX();
-            if (inputX == 0 && Mathf.Abs(walkSpeed) > 1) walkSpeed -= GetDirectionX() * walkAcceleration;
+            if (_statusModel.isClingJump) { 
+                walkSpeed = clingJumpDirection * clingJumpSpeed; 
+            }
+            else if (inputX == 0 && Mathf.Abs(walkSpeed) > 1) walkSpeed -= GetDirectionX() * walkAcceleration;
             else walkSpeed += walkAcceleration * inputX;
 
             if (Mathf.Abs(walkSpeed) > maxWalkSpeed) walkSpeed = maxWalkSpeed * inputX;
@@ -119,10 +123,8 @@ public class MoveService : MonoBehaviour
 
     public void Jump(ref Vector3 velocity)
     {
-        if (_statusModel.isClingJump)
-        {
-            velocity.x = clingJumpDirection * clingJumpSpeed;
-        }
+        
+        
 
         if (!_timerManager.jumpTimer.IsUp() && jumpFlag && !isHovering)
         {

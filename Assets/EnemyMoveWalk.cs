@@ -9,6 +9,8 @@ public class EnemyMoveWalk : MonoBehaviour
     public float hitstunSpeed;
     public float walkSpeed;
     public float stopDistance;
+    public Animator _animator;
+    public SpriteRenderer _spriteRenderer;
     private Rigidbody2D rb;
     public GameObject returnPosition;
     private Transform playerTransform;
@@ -16,7 +18,7 @@ public class EnemyMoveWalk : MonoBehaviour
 
     void Start()
     {
-        enemyStatusModel = GetComponent<EnemyStatusModel>();
+        enemyStatusModel = GetComponentInParent<EnemyStatusModel>();
         playerTransform = GameObject.Find("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -63,6 +65,16 @@ public class EnemyMoveWalk : MonoBehaviour
     {
         var direction = rb.position.x > target.position.x ? -1 : 1;
         Vector3 newPosition = new Vector3(rb.position.x + walkSpeed * direction * Time.deltaTime, rb.position.y, 0);
-        if(Mathf.Abs(rb.position.x - target.position.x) > stopDistance) rb.position = newPosition;
+        
+
+        if(rb.position.x != target.position.x) _animator.SetBool("AnimWalk", true);
+        else _animator.SetBool("AnimWalk", false);
+
+        if(direction > 0) _spriteRenderer.flipX = false;
+        else _spriteRenderer.flipX = true;
+
+        if (Mathf.Abs(rb.position.x - target.position.x) > stopDistance) rb.position = newPosition;
+
+
     }
 }

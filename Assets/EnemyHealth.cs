@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviour
         health = maxHealth;
         hitstunTimer = new Timer();
         invincibilityTimer = new Timer();
-        enemyStatusModel = GetComponent<EnemyStatusModel>();
+        enemyStatusModel = GetComponentInParent<EnemyStatusModel>();
     }
 
     public void Update()
@@ -49,14 +49,31 @@ public class EnemyHealth : MonoBehaviour
 
     public void TriggerHitstun()
     {
-        hitstunTimer.Trigger(hitstunTime);
-        enemyStatusModel.isHitstun = true;
+        if (enemyStatusModel.isStunnable)
+        {
+            hitstunTimer.Trigger(hitstunTime);
+            enemyStatusModel.isHitstun = true;
+        }
     }
 
     public void TriggerInvincibility()
     {
         invincibilityTimer.Trigger(invincibilityTime);
         enemyStatusModel.isInvincible = true;
+    }
+
+    public void HitDetection(Collider2D collision)
+    {
+        if (collision.tag == "Hitbox" && collision.transform.parent.gameObject.name == "Player")
+        {
+            ReduceHealth(1);
+            TriggerHitstun();
+            TriggerInvincibility();
+        }
+        if (collision.tag == "Player")
+        {
+            TriggerHitstun();
+        }
     }
 
 

@@ -54,6 +54,9 @@
   </objectgroup>
  </tile>
  <tile id="10">
+  <properties>
+   <property name="unity:tag" value="Ground"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="-0.875" y="-0.75" width="65.75" height="65.125"/>
   </objectgroup>
