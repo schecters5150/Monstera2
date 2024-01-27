@@ -110,7 +110,7 @@ public class MoveService : MonoBehaviour
         {
             var inputX = _inputManager.MovementX();
             if (_statusModel.isClingJump) { 
-                walkSpeed = clingJumpDirection * clingJumpSpeed; 
+                walkSpeed = -clingJumpDirection * clingJumpSpeed; 
             }
             else if (inputX == 0 && Mathf.Abs(walkSpeed) > 1) walkSpeed -= GetDirectionX() * walkAcceleration;
             else walkSpeed += walkAcceleration * inputX;
