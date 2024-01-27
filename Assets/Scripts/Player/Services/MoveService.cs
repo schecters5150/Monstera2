@@ -11,7 +11,8 @@ public class MoveService : MonoBehaviour
     public float maxHoverSpeed;
     public float hoverMod;
     public float gravity;
-    public float hitstunSpeed;
+    public float hitstunSpeedX;
+    public float hitstunSpeedY;
     public float jumpForce;
     public float shortJumpRatio;
     public float maxJumpTime;
@@ -36,7 +37,7 @@ public class MoveService : MonoBehaviour
     private bool disableHover;
     private int bumpDirection;
     private int dodgeDirection;
-    private int clingJumpDirection;
+    public int clingJumpDirection;
 
 
     private StatusModel _statusModel;
@@ -123,9 +124,6 @@ public class MoveService : MonoBehaviour
 
     public void Jump(ref Vector3 velocity)
     {
-        
-        
-
         if (!_timerManager.jumpTimer.IsUp() && jumpFlag && !isHovering)
         {
             velocity.y = (maxJumpTime - _timerManager.jumpTimer.GetTime()) * jumpForce;
@@ -187,7 +185,8 @@ public class MoveService : MonoBehaviour
         if (!_statusModel.isHitstun) return;
 
         var velocity = _controller.velocity;
-        velocity.x = hitstunSpeed * bumpDirection;
+        velocity.x = hitstunSpeedX * bumpDirection;
+        velocity.y = hitstunSpeedY;
         _controller.move(velocity * Time.fixedDeltaTime);
     }
 

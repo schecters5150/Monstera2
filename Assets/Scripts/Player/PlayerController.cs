@@ -174,6 +174,17 @@ public class PlayerController : MonoBehaviour
                 _playerSprite.flipX = false;
             }
         }
+        if (_statusModel.isCling)
+        {
+            if(_moveService.clingJumpDirection > 0)
+            {
+                _playerSprite.flipX = false;
+            }
+            if(_moveService.clingJumpDirection < 0)
+            {
+                _playerSprite.flipX = true;
+            }
+        }
 
         //Rotation
         if (_controller.isGrounded || _statusModel.isAttacking || !_moveService.isHovering)

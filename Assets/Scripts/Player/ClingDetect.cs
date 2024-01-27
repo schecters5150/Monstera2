@@ -7,6 +7,7 @@ public class ClingDetect : MonoBehaviour
     MoveService moveService;
     InventoryModel inventoryModel;
     public int moveDireciton;
+    public int clingDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +18,10 @@ public class ClingDetect : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.tag == "Ground" && inventoryModel.debugWallCling)
+        if (collider.tag == "Ground" && inventoryModel.debugWallCling && !gameObject.GetComponentInParent<StatusModel>().isGrounded)
         {
             gameObject.GetComponentInParent<StatusModel>().isCling = true;
-            moveService.SetClingJumpDirection(moveDireciton);
+            moveService.SetClingJumpDirection(clingDirection);
             moveService.ResetJumps();
         }
     }

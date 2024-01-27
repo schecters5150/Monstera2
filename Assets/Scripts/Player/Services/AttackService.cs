@@ -45,13 +45,14 @@ public class AttackService : MonoBehaviour
 
     public void CheckAttack()
     {
-        if (!statusModel.disableAttack) {
+        if (!statusModel.disableAttack && !statusModel.isCling) {
             AttackRight();
             AttackLeft();
             AttackUp();
             AttackDown();
         }
         ClearAttackFlags();
+        ClearAttackTimer();
     }
     private void AttackRight()
     {
@@ -127,6 +128,13 @@ public class AttackService : MonoBehaviour
             attackLeftFlag = false;
             attackRightFlag = false;
             attackDownFlag = false;
+        }
+    }
+
+    public void ClearAttackTimer()
+    {
+        if (statusModel.isCling) {
+            timerManager.attackTimer.Trigger(-1);
         }
     }
 

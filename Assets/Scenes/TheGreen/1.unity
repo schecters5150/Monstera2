@@ -4835,6 +4835,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3641425373244284648, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: hover
+      value: 
+      objectReference: {fileID: 8300000, guid: b8d496629abe54046bd3bf4765a40607, type: 3}
     - target: {fileID: 3737034770122021194, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_Intensity
       value: 0.8
@@ -6723,6 +6727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Template
       objectReference: {fileID: 0}
+    - target: {fileID: 7639500922564450918, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8299012474087084130, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: debugDodge
       value: 1
@@ -6743,6 +6751,10 @@ PrefabInstance:
       propertyPath: debugDoubleJump
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8617980253778029054, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 187d8bffd08a0c6438c619de7e1ab3ca, type: 3}
     - target: {fileID: 8878742205063635778, guid: e3fc60144445ea949b6ac14fc4047600, type: 3}
       propertyPath: m_FalloffIntensity
       value: 0
