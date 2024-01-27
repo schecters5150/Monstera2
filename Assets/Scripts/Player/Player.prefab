@@ -791,7 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDodgeTime: 0.2
-  maxHitstunTime: 0.1
+  maxHitstunTime: 0.2
   maxBumpTime: 0.1
   maxDisableAttackTime: 0.4
   maxDisableDodgeTime: 0.3
@@ -839,7 +839,7 @@ MonoBehaviour:
   maxHoverSpeed: 15
   hoverMod: 5
   gravity: 50
-  hitstunSpeed: 20
+  hitstunSpeed: 5
   jumpForce: 100
   shortJumpRatio: 0.4
   maxJumpTime: 0.18
@@ -1053,10 +1053,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusModel: {fileID: 0}
-  audioSource: {fileID: 0}
   potteryBreak: {fileID: 8300000, guid: a4618070045fdf64e9687ef046a14d00, type: 3}
-  attackWhoosh: {fileID: 8300000, guid: 322cb699097408a4db15cee96281034f, type: 3}
-  hit: {fileID: 8300000, guid: 4b3587a0ad56f9e409d496a8095e2883, type: 3}
+  attackWhoosh: {fileID: 8300000, guid: 4da74024ebf89aa4eb5e70679e323cfb, type: 3}
+  walk: {fileID: 8300000, guid: 3f06352074c17814dbf2ad419bf3165e, type: 3}
+  hover: {fileID: 8300000, guid: 54e628ee40384f040af300d5e9f9e016, type: 3}
+  hit: {fileID: 8300000, guid: b095455289bc04fca92e91be30c46fa5, type: 3}
+  walkTimerDelay: 0.6
+  hoverTimerDelay: 0.5
 --- !u!212 &3187161136430377658
 SpriteRenderer:
   m_ObjectHideFlags: 0

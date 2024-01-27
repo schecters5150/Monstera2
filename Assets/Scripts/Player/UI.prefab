@@ -563,8 +563,8 @@ MonoBehaviour:
   m_fontSizeBase: 12.225
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 3.6666667
-  m_fontSizeMax: 183.33334
+  m_fontSizeMin: 3.3697915
+  m_fontSizeMax: 168.48958
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -1424,8 +1424,8 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 20.340288
-  m_fontSizeMax: 40.680576
+  m_fontSizeMin: 18.693419
+  m_fontSizeMax: 37.386837
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -2539,7 +2539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8582595047010995023, guid: 4d9f4c25694503e4bb7becd48568ed35, type: 3}
       propertyPath: m_Volume
-      value: 0.675
+      value: 0.206
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d9f4c25694503e4bb7becd48568ed35, type: 3}

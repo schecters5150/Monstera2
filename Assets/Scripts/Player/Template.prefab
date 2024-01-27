@@ -719,6 +719,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2989301108783235872, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3014472033872279750, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_fontSizeMax
       value: 168.48958
@@ -729,7 +733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3810576867468570808, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_Volume
-      value: 1
+      value: 0.552
       objectReference: {fileID: 0}
     - target: {fileID: 5568688747829313789, guid: dafa94e329aaaba49a415301491f52a0, type: 3}
       propertyPath: m_LocalPosition.y

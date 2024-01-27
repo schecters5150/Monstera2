@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Player" || collider.tag == "Ground")
+        if(collider.tag == "Player" || collider.tag == "Ground" || collider.tag == "Hitbox")
         {
             Destroy(this.gameObject);
         }

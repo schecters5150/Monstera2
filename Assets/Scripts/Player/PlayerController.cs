@@ -143,8 +143,16 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("AnimHitstun", _statusModel.isHitstun);
 
         //Walking 
-        if (_controller.isGrounded && _controller.velocity.x != 0) _animator.SetBool("AnimWalk", true);
-        else _animator.SetBool("AnimWalk", false);
+        if (_controller.isGrounded && _controller.velocity.x != 0)
+        {
+            _animator.SetBool("AnimWalk", true);
+            _statusModel.isWalking = true;
+        }
+        else
+        {
+            _animator.SetBool("AnimWalk", false);
+            _statusModel.isWalking = false;
+        }
 
         //Directionality
         if (_controller.velocity.x < 0 && !_statusModel.isAttacking && !_statusModel.isCling)
@@ -194,15 +202,18 @@ public class PlayerController : MonoBehaviour
         //Hover
         if (_moveService.isHovering)
         {
+            _statusModel.isHovering = true;
             _animator.SetBool("AnimHover", true);
         }
         else if (!_controller.isGrounded)
         {
+            _statusModel.isHovering = false;
             _animator.SetBool("AnimFall", true);
             _animator.SetBool("AnimHover", false);
         }
         else
         {
+            _statusModel.isHovering = false;
             _animator.SetBool("AnimHover", false);
             _animator.SetBool("AnimFall", false);
         }
