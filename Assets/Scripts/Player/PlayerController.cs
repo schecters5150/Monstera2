@@ -155,11 +155,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //Directionality
-        if (_controller.velocity.x < 0 && !_statusModel.isAttacking && !_statusModel.isCling)
+        if (_controller.velocity.x < 0 && !_statusModel.isAttackAnimation && !_statusModel.isCling)
         {
             _playerSprite.flipX = true;
         }
-        if (_controller.velocity.x > 0 && !_statusModel.isAttacking && !_statusModel.isCling)
+        if (_controller.velocity.x > 0 && !_statusModel.isAttackAnimation && !_statusModel.isCling)
         {
             _playerSprite.flipX = false;
         }
@@ -246,6 +246,7 @@ public class PlayerController : MonoBehaviour
         }
         else { _animator.SetBool("AnimWallCling", false); }
     }
+
 
     public bool IsInAttackAnimation()
     {

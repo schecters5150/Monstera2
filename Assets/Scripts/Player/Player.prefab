@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0}
+  m_Offset: {x: 0.6, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -871,8 +871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  swordSwingTime: 0.5
-  attackDelayTime: 0
+  swordSwingTime: 0.15
+  attackDelayTime: 0.2
   swordStaminaReduction: 0
   attackLeftFlag: 0
   attackRightFlag: 0
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   walk: {fileID: 8300000, guid: 3f06352074c17814dbf2ad419bf3165e, type: 3}
   hover: {fileID: 8300000, guid: 54e628ee40384f040af300d5e9f9e016, type: 3}
   hit: {fileID: 8300000, guid: b095455289bc04fca92e91be30c46fa5, type: 3}
-  walkTimerDelay: 0.5
+  walkTimerDelay: 0.7
   hoverTimerDelay: 0.5
 --- !u!212 &3187161136430377658
 SpriteRenderer:
@@ -6563,7 +6563,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5, y: 0}
+  m_Offset: {x: -0.6, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

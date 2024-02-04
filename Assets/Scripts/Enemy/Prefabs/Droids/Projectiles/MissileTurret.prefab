@@ -59,9 +59,10 @@ GameObject:
   - component: {fileID: 155027298102493896}
   - component: {fileID: 1508943458391139249}
   - component: {fileID: 6294855160703806288}
+  - component: {fileID: 2779561659311165229}
   m_Layer: 0
   m_Name: Physics and Hit detection
-  m_TagString: BouncePad
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +142,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthObj: {fileID: 3375672656206849545}
+--- !u!114 &2779561659311165229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982088555816312100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81b5a75b6cd48d46abf799028342bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &8694360791237793545
 GameObject:
   m_ObjectHideFlags: 0

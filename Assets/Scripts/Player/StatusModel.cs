@@ -8,6 +8,7 @@ public class StatusModel : MonoBehaviour
     public bool isDodging { get; set; } = false;
     public bool isHitstun { get; set; } = false;
     public bool isAttacking { get; set; } = false;
+    public bool isAttackAnimation { get; set; } = false;
     public bool isWalking { get; set; } = false;
     public bool isHovering { get; set; } = false;
     public bool isJump { get; set; } = false;

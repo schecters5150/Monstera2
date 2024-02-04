@@ -25,6 +25,7 @@ public class PlayerTimerManager : MonoBehaviour
     public Timer disableMoveTimer;
     public Timer jumpTimer;
     public Timer attackTimer;
+    public Timer attackAnimationTimer;
 
 
     void Start()
@@ -58,6 +59,7 @@ public class PlayerTimerManager : MonoBehaviour
         disableMoveTimer = new Timer();
         jumpTimer = new Timer();
         attackTimer = new Timer();
+        attackAnimationTimer = new Timer();
     }
 
     private void RunTimers()
@@ -72,6 +74,7 @@ public class PlayerTimerManager : MonoBehaviour
         disableMoveTimer.CalculateTime();
         jumpTimer.CalculateTime();
         attackTimer.CalculateTime();
+        attackAnimationTimer.CalculateTime();
     }
 
     void SetTimerInputs()
@@ -109,5 +112,6 @@ public class PlayerTimerManager : MonoBehaviour
         if (!invincibilityTimer.IsUp()) _statusModel.isInvincible = true;
         if (!disableMoveTimer.IsUp()) _statusModel.disableMove = true;
         if (!attackTimer.IsUp()) _statusModel.isAttacking = true;
+        if (!attackAnimationTimer.IsUp()) _statusModel.isAttackAnimation = true;
     }
 }

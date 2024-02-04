@@ -98,9 +98,11 @@ public class AttackService : MonoBehaviour
     {
         soundController.PlayWhoosh();
         timerManager.attackTimer.Trigger(swordSwingTime);
+        timerManager.attackAnimationTimer.Trigger(swordSwingTime + attackDelayTime);
         healthService.ReduceStamina(swordStaminaReduction);
         ResetSpriteRotation();
         statusModel.isAttacking = true;
+        statusModel.isAttackAnimation = true;
     }
 
     private void ResetSpriteRotation()
@@ -119,6 +121,10 @@ public class AttackService : MonoBehaviour
             hitboxRight.SetActive(false);
             statusModel.isAttacking = false;
             timerManager.disableAttackTimer.Trigger(attackDelayTime);
+        }
+        if (timerManager.attackAnimationTimer.IsUp())
+        {
+            statusModel.isAttackAnimation = false;
         }
     }
 

@@ -139,7 +139,7 @@ public class MoveService : MonoBehaviour
     public void AirMovement(ref Vector3 velocity)
     {
         HoverHitBoxRotation();
-        if (_inputManager.HoverIsPressed() && !_controller.isGrounded && !disableHover && !_statusModel.staminaDepleted)
+        if (_inputManager.HoverIsPressed() && !_controller.isGrounded && !disableHover && !_statusModel.staminaDepleted && !_statusModel.isCling)
         {
             CalculateHover(ref velocity, gravity);
             _playerHealth.ReduceStamina(hoverStaminaDeplete * Time.fixedDeltaTime);

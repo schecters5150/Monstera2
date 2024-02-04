@@ -9,37 +9,46 @@ public class EnemyMoveHover : MonoBehaviour
     public float hitstunSpeed;
     private Rigidbody2D rb;
     public GameObject returnPosition;
+    public SpriteRenderer _spriteRenderer;
     private AIDestinationSetter aiDestiniationSetter;
     private Transform playerTransform;
     private EnemyStatusModel enemyStatusModel;
     private AIPath aiPath;
+    private Transform target;
 
     void Start()
     {
         aiDestiniationSetter = GetComponent<AIDestinationSetter>();
         aiPath = GetComponent<AIPath>();
-        enemyStatusModel = GetComponent<EnemyStatusModel>();
+        enemyStatusModel = GetComponentInParent<EnemyStatusModel>();
         playerTransform = GameObject.Find("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (enemyStatusModel.isInLOS) target = playerTransform;
+        else target = returnPosition.transform;
+
+        FlipSprite();
         if (enemyStatusModel.isHitstun)
         {
             aiPath.enabled = false;
             HitstunMove();
         }
-        else if (enemyStatusModel.isInLOS)
+        else 
         {
             aiPath.enabled = true;
-            aiDestiniationSetter.target = playerTransform;
+            aiDestiniationSetter.target = target;
         }
-        else {
-            aiPath.enabled = true; 
-            aiDestiniationSetter.target = returnPosition.transform; 
-        }
+    }
+
+    private void FlipSprite()
+    {
+        var direction = rb.position.x > target.position.x ? -1 : 1;
+        if (direction > 0) _spriteRenderer.flipX = false;
+        else _spriteRenderer.flipX = true;
     }
 
     private void HitstunMove()
