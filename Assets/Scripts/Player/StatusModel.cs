@@ -21,4 +21,6 @@ public class StatusModel : MonoBehaviour
     public bool isClingJump { get; set; } = false;
     public bool isInvincible { get; set; } = false;
     public bool staminaDepleted { get; set; } = false;
+    public bool isParrying { get; set; } = false;
+    public bool isBlocking { get; set; } = false;
 }

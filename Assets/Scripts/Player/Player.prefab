@@ -755,6 +755,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3860caba-223f-49f7-8a6c-f2541a03eb7b
     m_ActionName: Platformer/Zoom[/XInputControllerWindows/leftTrigger,/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a8ba5497-8a0d-452a-9055-1f5ca362a44a
+    m_ActionName: Platformer/Parry[/XInputControllerWindows/leftShoulder,/Keyboard/rightCtrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Xbox
   m_DefaultActionMap: New action map
@@ -873,6 +877,7 @@ MonoBehaviour:
   damage: 0
   swordSwingTime: 0.15
   attackDelayTime: 0.2
+  parryTime: 0
   swordStaminaReduction: 0
   attackLeftFlag: 0
   attackRightFlag: 0
@@ -882,7 +887,6 @@ MonoBehaviour:
   hitboxUp: {fileID: 300115376177606369}
   hitboxDown: {fileID: 1426844062537156600}
   _playerSprite: {fileID: 9044369072761023975}
-  hitSound: {fileID: 8300000, guid: 322cb699097408a4db15cee96281034f, type: 3}
 --- !u!114 &7506385538496532456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,6 +923,7 @@ MonoBehaviour:
     fire: 0
     dodge: 0
     fertilizer: 0
+    parry: 0
   debug: 1
   debugSword: 1
   debugDoubleJump: 0
@@ -928,6 +933,7 @@ MonoBehaviour:
   debugFire: 0
   debugFertilizer: 4
   debugDodge: 0
+  debugParry: 1
 --- !u!114 &4543313371419188254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1067,7 @@ MonoBehaviour:
   walk: {fileID: 8300000, guid: 3f06352074c17814dbf2ad419bf3165e, type: 3}
   hover: {fileID: 8300000, guid: 54e628ee40384f040af300d5e9f9e016, type: 3}
   hit: {fileID: 8300000, guid: b095455289bc04fca92e91be30c46fa5, type: 3}
+  parry: {fileID: 8300000, guid: a75570e55f3a9204ebb55e4b86dbb1e0, type: 3}
   walkTimerDelay: 0.7
   hoverTimerDelay: 0.5
 --- !u!212 &3187161136430377658

@@ -55,6 +55,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Parry"",
+                    ""type"": ""Button"",
+                    ""id"": ""a8ba5497-8a0d-452a-9055-1f5ca362a44a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Dodge"",
                     ""type"": ""Button"",
                     ""id"": ""7e0e3d34-da36-4312-8187-c0b0b82b5557"",
@@ -241,7 +250,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fa7bc916-17a7-4993-bf32-0027cf6d5121"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -457,6 +466,28 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""043f986f-21b4-4df7-8ff7-6706e13bdb73"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Parry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da8ff513-0006-444e-89b4-6a04d5defa7b"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Parry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -508,6 +539,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Platformer_Jump = m_Platformer.FindAction("Jump", throwIfNotFound: true);
         m_Platformer_Movement = m_Platformer.FindAction("Movement", throwIfNotFound: true);
         m_Platformer_Hover = m_Platformer.FindAction("Hover", throwIfNotFound: true);
+        m_Platformer_Parry = m_Platformer.FindAction("Parry", throwIfNotFound: true);
         m_Platformer_Dodge = m_Platformer.FindAction("Dodge", throwIfNotFound: true);
         m_Platformer_AttackRight = m_Platformer.FindAction("AttackRight", throwIfNotFound: true);
         m_Platformer_AttackLeft = m_Platformer.FindAction("AttackLeft", throwIfNotFound: true);
@@ -581,6 +613,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Platformer_Jump;
     private readonly InputAction m_Platformer_Movement;
     private readonly InputAction m_Platformer_Hover;
+    private readonly InputAction m_Platformer_Parry;
     private readonly InputAction m_Platformer_Dodge;
     private readonly InputAction m_Platformer_AttackRight;
     private readonly InputAction m_Platformer_AttackLeft;
@@ -596,6 +629,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Platformer_Jump;
         public InputAction @Movement => m_Wrapper.m_Platformer_Movement;
         public InputAction @Hover => m_Wrapper.m_Platformer_Hover;
+        public InputAction @Parry => m_Wrapper.m_Platformer_Parry;
         public InputAction @Dodge => m_Wrapper.m_Platformer_Dodge;
         public InputAction @AttackRight => m_Wrapper.m_Platformer_AttackRight;
         public InputAction @AttackLeft => m_Wrapper.m_Platformer_AttackLeft;
@@ -622,6 +656,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @Hover.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnHover;
                 @Hover.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnHover;
                 @Hover.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnHover;
+                @Parry.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnParry;
+                @Parry.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnParry;
+                @Parry.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnParry;
                 @Dodge.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnDodge;
                 @Dodge.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnDodge;
                 @Dodge.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnDodge;
@@ -659,6 +696,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @Hover.started += instance.OnHover;
                 @Hover.performed += instance.OnHover;
                 @Hover.canceled += instance.OnHover;
+                @Parry.started += instance.OnParry;
+                @Parry.performed += instance.OnParry;
+                @Parry.canceled += instance.OnParry;
                 @Dodge.started += instance.OnDodge;
                 @Dodge.performed += instance.OnDodge;
                 @Dodge.canceled += instance.OnDodge;
@@ -734,6 +774,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnHover(InputAction.CallbackContext context);
+        void OnParry(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);
         void OnAttackRight(InputAction.CallbackContext context);
         void OnAttackLeft(InputAction.CallbackContext context);

@@ -7,6 +7,7 @@ public class AttackService : MonoBehaviour
     public int damage;
     public float swordSwingTime;
     public float attackDelayTime;
+    public float parryTime;
     public int swordStaminaReduction;
     public bool attackLeftFlag;
     public bool attackRightFlag;
@@ -17,7 +18,6 @@ public class AttackService : MonoBehaviour
     public GameObject hitboxUp;
     public GameObject hitboxDown;
     public GameObject _playerSprite;
-    public AudioClip hitSound;
     
 
     private InputManager inputManager;
@@ -40,9 +40,17 @@ public class AttackService : MonoBehaviour
     public void Update()
     {
         ClearHitboxes();
-        CheckAttack();    
+        CheckAttack();
+        CheckParry();
     }
-
+    public void CheckParry()
+    {
+        if (inputManager.ParryTriggered() && !statusModel.isAttacking)
+        {
+            soundController.PlayParry();
+            timerManager.parryTimer.Trigger(parryTime);
+        }
+    }
     public void CheckAttack()
     {
         if (!statusModel.disableAttack && !statusModel.isCling) {

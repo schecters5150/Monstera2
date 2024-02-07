@@ -12,12 +12,17 @@ public class EnemyHealth : MonoBehaviour
     Timer hitstunTimer;
     public float invincibilityTime;
     Timer invincibilityTimer;
+    public float maxPoise;
+    public float poise;
+    public float poiseHealRate;
+    public float poiseBreakTime;
 
     private EnemyStatusModel enemyStatusModel;
 
     public void Start()
     {
         health = maxHealth;
+        poise = maxPoise;
         hitstunTimer = new Timer();
         invincibilityTimer = new Timer();
         enemyStatusModel = GetComponentInParent<EnemyStatusModel>();
@@ -40,11 +45,20 @@ public class EnemyHealth : MonoBehaviour
     {
         invincibilityTimer.CalculateTime();
         hitstunTimer.CalculateTime();
+        if(poise < maxPoise)
+        {
+            poise += .016f * poiseHealRate;
+        }
     }
 
     public void ReduceHealth(int health)
     {
         this.health -= health;
+    }
+
+    public void ReducePoise(int poiseDamage)
+    {
+        this.poise -= poiseDamage;
     }
 
     public void TriggerHitstun()
@@ -67,6 +81,7 @@ public class EnemyHealth : MonoBehaviour
         if (collision.tag == "Hitbox" && collision.transform.parent.gameObject.name == "Player")
         {
             ReduceHealth(1);
+            ReducePoise(1);
             TriggerHitstun();
             TriggerInvincibility();
         }

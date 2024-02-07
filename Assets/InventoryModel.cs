@@ -18,6 +18,7 @@ public class InventoryModel : MonoBehaviour
     public bool debugFire;
     public int debugFertilizer;
     public bool debugDodge;
+    public bool debugParry;
 
 
     public void SaveFile()
@@ -66,7 +67,8 @@ public class InventoryModel : MonoBehaviour
                 dodge = debugDodge,
                 deflect = debugDeflect,
                 fire = debugFire,
-                fertilizer = debugFertilizer
+                fertilizer = debugFertilizer,
+                parry = debugParry
             };
         }
         else jsonModel = LoadFile();
@@ -90,4 +92,5 @@ public class InventoryJsonModel
     public bool fire;
     public bool dodge;
     public int fertilizer;
+    public bool parry;
 }

@@ -11,6 +11,7 @@ public class SoundController : MonoBehaviour
     public AudioClip walk;
     public AudioClip hover;
     public AudioClip hit;
+    public AudioClip parry;
     private AudioSource audioSource;
 
     public float walkTimerDelay;
@@ -36,6 +37,16 @@ public class SoundController : MonoBehaviour
         audioSource.PlayOneShot(hit);
     }
 
+    public void PlayParry()
+    {
+        audioSource.PlayOneShot(parry);
+    }
+
+    public void PlayShatter()
+    {
+        audioSource.PlayOneShot(potteryBreak);
+    }
+
     public void Update()
     {
         var test = walkDelayTimer.IsUp();
@@ -59,7 +70,7 @@ public class SoundController : MonoBehaviour
         {
             if(collision.tag == "Enemy")
             {
-                audioSource.PlayOneShot(potteryBreak);
+                
             }
         }
     }

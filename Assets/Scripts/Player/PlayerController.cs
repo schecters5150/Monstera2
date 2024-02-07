@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public GameObject _zoomOutFeedback;
     public GameObject _playerSpriteObject;
 
+    private SoundController _soundController;
     public float dodgeGateRefresh;
     private bool inZoomOutZone;
     private bool dodgeGateSemiphor = false;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
         _interstateModel = GetComponent<IntersceneStatusModel>();
         _playerHealth = GetComponent<PlayerHealth>();
         _playerSprite = _playerSpriteObject.GetComponent<SpriteRenderer>();
+        _soundController = GetComponent<SoundController>();
         SetInterstateParams();
     }
 
@@ -110,11 +112,20 @@ public class PlayerController : MonoBehaviour
         if (collider.tag == "Enemy" && !enemySemiphor && !_statusModel.isDodging)
         {
             enemySemiphor = true;
-            _onHitFeedback.GetComponent<MMFeedbacks>().PlayFeedbacks();
-            _playerHealth.ReduceHealth(collider.gameObject.GetComponent<EnemyHitbox>().damage);
-            _timerManager.invincibilityTimer.Trigger(_timerManager.maxInvincibilityTime);
-            _moveService.SetBumpDirection(GetBumpDirection(collider));
-            _timerManager.hitstunTimer.Trigger(_timerManager.maxHitstunTime);
+
+            if (_statusModel.isParrying)
+            {
+
+            }
+            else {
+                _soundController.PlayShatter();
+                _onHitFeedback.GetComponent<MMFeedbacks>().PlayFeedbacks();
+                _playerHealth.ReduceHealth(collider.gameObject.GetComponent<EnemyHitbox>().damage);
+                _timerManager.invincibilityTimer.Trigger(_timerManager.maxInvincibilityTime);
+                _moveService.SetBumpDirection(GetBumpDirection(collider));
+                _timerManager.hitstunTimer.Trigger(_timerManager.maxHitstunTime);
+                
+            }
         }
         if (collider.tag == "ZoomOutZone")
         {

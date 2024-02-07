@@ -26,6 +26,7 @@ public class PlayerTimerManager : MonoBehaviour
     public Timer jumpTimer;
     public Timer attackTimer;
     public Timer attackAnimationTimer;
+    public Timer parryTimer;
 
 
     void Start()
@@ -60,6 +61,7 @@ public class PlayerTimerManager : MonoBehaviour
         jumpTimer = new Timer();
         attackTimer = new Timer();
         attackAnimationTimer = new Timer();
+        parryTimer = new Timer();   
     }
 
     private void RunTimers()
@@ -75,6 +77,7 @@ public class PlayerTimerManager : MonoBehaviour
         jumpTimer.CalculateTime();
         attackTimer.CalculateTime();
         attackAnimationTimer.CalculateTime();
+        parryTimer.CalculateTime();
     }
 
     void SetTimerInputs()
@@ -113,5 +116,8 @@ public class PlayerTimerManager : MonoBehaviour
         if (!disableMoveTimer.IsUp()) _statusModel.disableMove = true;
         if (!attackTimer.IsUp()) _statusModel.isAttacking = true;
         if (!attackAnimationTimer.IsUp()) _statusModel.isAttackAnimation = true;
+
+        if (!parryTimer.IsUp()) _statusModel.isParrying = true;
+        else { _statusModel.isParrying = false; }
     }
 }

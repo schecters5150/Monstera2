@@ -60,6 +60,12 @@ public class InputManager : MonoBehaviour
         return _inputMaster.Platformer.Dodge.triggered;
     }
 
+    public bool ParryTriggered()
+    {
+        if (!_inventoryModel.jsonModel.parry) return false;
+        return _inputMaster.Platformer.Parry.triggered;
+    }
+
     public bool AttackLeftTriggered()
     {
         if (!_inventoryModel.jsonModel.sword) return false;
