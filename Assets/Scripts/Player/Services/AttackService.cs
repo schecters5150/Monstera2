@@ -18,6 +18,7 @@ public class AttackService : MonoBehaviour
     public GameObject hitboxUp;
     public GameObject hitboxDown;
     public GameObject _playerSprite;
+    public GameObject horizontalLobSpell;
     
 
     private InputManager inputManager;
@@ -42,6 +43,7 @@ public class AttackService : MonoBehaviour
         ClearHitboxes();
         CheckAttack();
         CheckParry();
+        CheckSpell();
     }
     public void CheckParry()
     {
@@ -49,6 +51,15 @@ public class AttackService : MonoBehaviour
         {
             soundController.PlayParry();
             timerManager.parryTimer.Trigger(parryTime);
+        }
+    }
+    public void CheckSpell()
+    {
+        if (inputManager.SpellTriggered())
+        {
+            var pos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
+            Instantiate(horizontalLobSpell, pos, Quaternion.Euler(0,0,0));
+            timerManager.attackAnimationTimer.Trigger(swordSwingTime + attackDelayTime);
         }
     }
     public void CheckAttack()

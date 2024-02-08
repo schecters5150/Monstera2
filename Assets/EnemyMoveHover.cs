@@ -15,6 +15,7 @@ public class EnemyMoveHover : MonoBehaviour
     private EnemyStatusModel enemyStatusModel;
     private AIPath aiPath;
     private Transform target;
+    public bool EnemyDetectOverride;
 
     void Start()
     {
@@ -28,10 +29,10 @@ public class EnemyMoveHover : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (enemyStatusModel.isInLOS) target = playerTransform;
+        if (enemyStatusModel.isInLOS || EnemyDetectOverride) target = playerTransform;
         else target = returnPosition.transform;
 
-        FlipSprite();
+        if (_spriteRenderer != null) FlipSprite();
         if (enemyStatusModel.isHitstun)
         {
             aiPath.enabled = false;

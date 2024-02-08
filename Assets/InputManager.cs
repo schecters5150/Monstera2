@@ -42,10 +42,11 @@ public class InputManager : MonoBehaviour
         if (!_inventoryModel.jsonModel.hover) return false;
         return _inputMaster.Platformer.Hover.triggered;
     }
-    /*    public bool FireTriggered()
-        {
-
-        }*/
+    public bool SpellTriggered()
+    {
+        if (!_inventoryModel.jsonModel.spell) return false;
+        return _inputMaster.Platformer.Spell.triggered;
+    }
     public bool HealTriggered()
     {
         return _inputMaster.Platformer.Heal.triggered;

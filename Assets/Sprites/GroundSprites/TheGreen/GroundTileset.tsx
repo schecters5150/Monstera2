@@ -61,6 +61,11 @@
    <object id="1" x="-0.875" y="-0.75" width="65.75" height="65.125"/>
   </objectgroup>
  </tile>
+ <tile id="11">
+  <objectgroup draworder="index" id="3">
+   <object id="4" x="0" y="0" width="64" height="64"/>
+  </objectgroup>
+ </tile>
  <tile id="12">
   <objectgroup draworder="index" id="2">
    <object id="1" x="-1.21285" y="-0.441037" width="35.1727" height="64.5017"/>
@@ -72,7 +77,7 @@
    <property name="unity:tag" value="Ground"/>
   </properties>
   <objectgroup draworder="index" id="2">
-   <object id="1" x="-1" y="-1" width="35" height="64.875"/>
+   <object id="2" x="0" y="0" width="64" height="64"/>
   </objectgroup>
  </tile>
  <tile id="14">

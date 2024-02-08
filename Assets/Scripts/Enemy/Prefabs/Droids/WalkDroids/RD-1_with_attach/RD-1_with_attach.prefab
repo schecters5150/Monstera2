@@ -237,7 +237,7 @@ MonoBehaviour:
   maxHealth: 25
   health: 0
   hitstunTime: 0.3
-  invincibilityTime: 0.2
+  invincibilityTime: 0.3
   maxPoise: 0
   poise: 0
   poiseHealRate: 0
