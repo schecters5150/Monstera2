@@ -215,7 +215,7 @@ MonoBehaviour:
   isPlayerProjectile: 0
   isThruGround: 0
   isThruHitbox: 0
-  isThruEnemy: 0
+  isThruEnemy: 1
   duration: 0
 --- !u!114 &7379949837642683324
 MonoBehaviour:

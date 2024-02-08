@@ -81,15 +81,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6762056168527846633}
-  - component: {fileID: 6762056168527846632}
   - component: {fileID: 6762056168527846634}
   - component: {fileID: 6762056168527846637}
   - component: {fileID: 732037711646200325}
   - component: {fileID: 6762056168527846636}
   - component: {fileID: 6762056168527846639}
   - component: {fileID: 6762056168527846630}
+  - component: {fileID: 1548848095216738309}
   m_Layer: 7
-  m_Name: Laser
+  m_Name: LaserNoRotate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,20 +110,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6762056168527846632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6762056168527846638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd23b70c161a09e4493fcaf67021fddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  target: {fileID: 0}
 --- !u!61 &6762056168527846634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -269,3 +255,16 @@ MonoBehaviour:
   isInvincible: 0
   isStunnable: 0
   isGrounded: 0
+--- !u!114 &1548848095216738309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6762056168527846638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e3bd310b79a634baa94243a356f145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10

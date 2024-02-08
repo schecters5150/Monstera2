@@ -106,6 +106,7 @@ MonoBehaviour:
   hitstunSpeed: 10
   returnPosition: {fileID: 7372121199850122310}
   _spriteRenderer: {fileID: 7372121200802070628}
+  EnemyDetectOverride: 0
 --- !u!114 &7372121199663506477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +292,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   health: 0
+  attachedObjectHealth: {fileID: 0}
+  triggerAttachedObjectHitstun: 0
+  reduceAttachedObjectHealth: 0
   hitstunTime: 0.3
   invincibilityTime: 0.2
   maxPoise: 2
@@ -664,6 +668,26 @@ PrefabInstance:
     - target: {fileID: 2630744920328798149, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461267562179772086, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
+      propertyPath: attachedObjectHealth
+      value: 
+      objectReference: {fileID: 7372121199943637512}
+    - target: {fileID: 4461267562179772086, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
+      propertyPath: reduceAttachedObjectHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461267562179772086, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
+      propertyPath: triggerAttachedObjectHitstun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954929910269969710, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954929910269969710, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 8694360791998301363, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
       propertyPath: m_Name

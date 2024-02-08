@@ -9,24 +9,31 @@ public class Spawner : MonoBehaviour
     public GameObject spawningObject;
     private EnemyStatusModel enemyStatusModel;
     public float interval;
+    public float phase;
 
+    public Timer phaseTimer;
     public Timer intervalTimer;
     void Start()
     {
         intervalTimer = new Timer();
+        phaseTimer = new Timer();
         enemyStatusModel = spawningObject.GetComponent<EnemyStatusModel>();
-        intervalTimer.Trigger(interval);
+        if(phase == 0) intervalTimer.Trigger(interval);
+        else phaseTimer.Trigger(phase * interval);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (!enemyStatusModel.isInLOS) return;
-        
-        intervalTimer.CalculateTime();
-        if (intervalTimer.IsUp()){
+         
+        if (intervalTimer.IsUp() && phaseTimer.IsUp()){
             intervalTimer.Trigger(interval);
-            Instantiate(spawnedObject, transform.position, transform.rotation);
+            var newObject = Instantiate(spawnedObject, transform.position, transform.rotation) as GameObject;
+            newObject.transform.rotation = spawningObject.transform.Find("Physics and Hit detection").transform.rotation;
         }
+
+        intervalTimer.CalculateTime();
+        phaseTimer.CalculateTime();
     }
 }

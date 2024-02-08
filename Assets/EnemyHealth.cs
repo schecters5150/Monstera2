@@ -7,6 +7,9 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     public float maxHealth;
     public float health;
+    public EnemyHealth attachedObjectHealth;
+    public bool triggerAttachedObjectHitstun;
+    public bool reduceAttachedObjectHealth;
 
     public float hitstunTime;
     Timer hitstunTimer;
@@ -62,6 +65,11 @@ public class EnemyHealth : MonoBehaviour
     public void ReduceHealth(float health)
     {
         this.health -= health;
+
+        if (attachedObjectHealth != null && reduceAttachedObjectHealth)
+        {
+            attachedObjectHealth.ReduceHealth(health);
+        }
     }
 
     public void ReducePoise(float poiseDamage)
@@ -75,6 +83,10 @@ public class EnemyHealth : MonoBehaviour
         {
             hitstunTimer.Trigger(hitstunTime);
             enemyStatusModel.isHitstun = true;
+        }
+        if (attachedObjectHealth != null && triggerAttachedObjectHitstun)
+        {
+            attachedObjectHealth.TriggerHitstun();
         }
     }
 
