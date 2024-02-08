@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7379949837642683316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 184.59227, y: 24.98854, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5491669053842290905}
@@ -212,6 +212,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a3857d8e0f6a840b00f453458b336c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerProjectile: 0
+  isThruGround: 0
+  isThruHitbox: 0
+  isThruEnemy: 0
+  duration: 0
 --- !u!114 &7379949837642683324
 MonoBehaviour:
   m_ObjectHideFlags: 0
