@@ -64,6 +64,42 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""SpellSwap"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed109987-0f3d-4150-b627-68958b46925f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""cff41503-2838-48c0-82e8-b48322ad6901"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""203df961-470a-4b3b-812e-d962eb17acf2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HealSwap"",
+                    ""type"": ""Button"",
+                    ""id"": ""7aee5fc1-2673-486f-84e9-cf969a0ac77d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Spell"",
                     ""type"": ""Button"",
                     ""id"": ""3dbe3719-3e89-4693-b0f4-8a48e86a91ae"",
@@ -519,6 +555,94 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""Spell"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c53851dc-f9ac-45c8-bd02-9e6392b5e438"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpellSwap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5fbc4fd-4dbe-4c50-8d02-a0ebde243227"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpellSwap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92b93dbb-95f7-49df-8b8f-446b7abf57d1"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a669955-fe7f-455d-9d56-04ea4b38a399"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcc4ef18-5c99-4f06-8477-0828543c1313"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e42a436-befe-4541-a7a9-9c0e85b853bd"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1a53f9d-995a-49b9-a5d5-d0a2a2f21a5c"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealSwap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42f1005f-d9ed-4b09-9aa1-9a971eacb2e7"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealSwap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -571,6 +695,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Platformer_Movement = m_Platformer.FindAction("Movement", throwIfNotFound: true);
         m_Platformer_Hover = m_Platformer.FindAction("Hover", throwIfNotFound: true);
         m_Platformer_Parry = m_Platformer.FindAction("Parry", throwIfNotFound: true);
+        m_Platformer_SpellSwap = m_Platformer.FindAction("SpellSwap", throwIfNotFound: true);
+        m_Platformer_ItemLeft = m_Platformer.FindAction("ItemLeft", throwIfNotFound: true);
+        m_Platformer_ItemRight = m_Platformer.FindAction("ItemRight", throwIfNotFound: true);
+        m_Platformer_HealSwap = m_Platformer.FindAction("HealSwap", throwIfNotFound: true);
         m_Platformer_Spell = m_Platformer.FindAction("Spell", throwIfNotFound: true);
         m_Platformer_Dodge = m_Platformer.FindAction("Dodge", throwIfNotFound: true);
         m_Platformer_AttackRight = m_Platformer.FindAction("AttackRight", throwIfNotFound: true);
@@ -646,6 +774,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Platformer_Movement;
     private readonly InputAction m_Platformer_Hover;
     private readonly InputAction m_Platformer_Parry;
+    private readonly InputAction m_Platformer_SpellSwap;
+    private readonly InputAction m_Platformer_ItemLeft;
+    private readonly InputAction m_Platformer_ItemRight;
+    private readonly InputAction m_Platformer_HealSwap;
     private readonly InputAction m_Platformer_Spell;
     private readonly InputAction m_Platformer_Dodge;
     private readonly InputAction m_Platformer_AttackRight;
@@ -663,6 +795,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Platformer_Movement;
         public InputAction @Hover => m_Wrapper.m_Platformer_Hover;
         public InputAction @Parry => m_Wrapper.m_Platformer_Parry;
+        public InputAction @SpellSwap => m_Wrapper.m_Platformer_SpellSwap;
+        public InputAction @ItemLeft => m_Wrapper.m_Platformer_ItemLeft;
+        public InputAction @ItemRight => m_Wrapper.m_Platformer_ItemRight;
+        public InputAction @HealSwap => m_Wrapper.m_Platformer_HealSwap;
         public InputAction @Spell => m_Wrapper.m_Platformer_Spell;
         public InputAction @Dodge => m_Wrapper.m_Platformer_Dodge;
         public InputAction @AttackRight => m_Wrapper.m_Platformer_AttackRight;
@@ -693,6 +829,18 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @Parry.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnParry;
                 @Parry.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnParry;
                 @Parry.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnParry;
+                @SpellSwap.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnSpellSwap;
+                @SpellSwap.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnSpellSwap;
+                @SpellSwap.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnSpellSwap;
+                @ItemLeft.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnItemLeft;
+                @ItemLeft.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnItemLeft;
+                @ItemLeft.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnItemLeft;
+                @ItemRight.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnItemRight;
+                @ItemRight.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnItemRight;
+                @ItemRight.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnItemRight;
+                @HealSwap.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnHealSwap;
+                @HealSwap.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnHealSwap;
+                @HealSwap.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnHealSwap;
                 @Spell.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnSpell;
                 @Spell.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnSpell;
                 @Spell.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnSpell;
@@ -736,6 +884,18 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @Parry.started += instance.OnParry;
                 @Parry.performed += instance.OnParry;
                 @Parry.canceled += instance.OnParry;
+                @SpellSwap.started += instance.OnSpellSwap;
+                @SpellSwap.performed += instance.OnSpellSwap;
+                @SpellSwap.canceled += instance.OnSpellSwap;
+                @ItemLeft.started += instance.OnItemLeft;
+                @ItemLeft.performed += instance.OnItemLeft;
+                @ItemLeft.canceled += instance.OnItemLeft;
+                @ItemRight.started += instance.OnItemRight;
+                @ItemRight.performed += instance.OnItemRight;
+                @ItemRight.canceled += instance.OnItemRight;
+                @HealSwap.started += instance.OnHealSwap;
+                @HealSwap.performed += instance.OnHealSwap;
+                @HealSwap.canceled += instance.OnHealSwap;
                 @Spell.started += instance.OnSpell;
                 @Spell.performed += instance.OnSpell;
                 @Spell.canceled += instance.OnSpell;
@@ -815,6 +975,10 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnHover(InputAction.CallbackContext context);
         void OnParry(InputAction.CallbackContext context);
+        void OnSpellSwap(InputAction.CallbackContext context);
+        void OnItemLeft(InputAction.CallbackContext context);
+        void OnItemRight(InputAction.CallbackContext context);
+        void OnHealSwap(InputAction.CallbackContext context);
         void OnSpell(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);
         void OnAttackRight(InputAction.CallbackContext context);

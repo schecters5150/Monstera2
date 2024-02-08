@@ -44,8 +44,11 @@ public class InputManager : MonoBehaviour
     }
     public bool SpellTriggered()
     {
-        if (!_inventoryModel.jsonModel.spell) return false;
         return _inputMaster.Platformer.Spell.triggered;
+    }
+    public bool SpellSwap()
+    {
+        return _inputMaster.Platformer.SpellSwap.triggered;
     }
     public bool HealTriggered()
     {

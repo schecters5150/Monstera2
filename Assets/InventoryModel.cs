@@ -15,7 +15,7 @@ public class InventoryModel : MonoBehaviour
     public bool debugWallCling;
     public bool debugHover;
     public bool debugDeflect;
-    public bool debugSpell;
+    public bool[] debugSpell;
     public int debugFertilizer;
     public bool debugDodge;
     public bool debugParry;
@@ -79,6 +79,7 @@ public class InventoryModel : MonoBehaviour
     {
         
     }
+    
 }
 
 [Serializable]
@@ -92,5 +93,5 @@ public class InventoryJsonModel
     public bool dodge;
     public int fertilizer;
     public bool parry;
-    public bool spell;
+    public bool[] spell = new bool[2];
 }

@@ -814,6 +814,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3dbe3719-3e89-4693-b0f4-8a48e86a91ae
     m_ActionName: Platformer/Spell[/XInputControllerWindows/rightTrigger,/Keyboard/rightShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ed109987-0f3d-4150-b627-68958b46925f
+    m_ActionName: Platformer/SpellSwap[/XInputControllerWindows/dpad/up,/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cff41503-2838-48c0-82e8-b48322ad6901
+    m_ActionName: Platformer/ItemLeft[/XInputControllerWindows/dpad/left,/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 203df961-470a-4b3b-812e-d962eb17acf2
+    m_ActionName: Platformer/ItemRight[/XInputControllerWindows/dpad/right,/Keyboard/3]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7aee5fc1-2673-486f-84e9-cf969a0ac77d
+    m_ActionName: Platformer/HealSwap[/XInputControllerWindows/dpad/down,/Keyboard/4]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Xbox
   m_DefaultActionMap: New action map
@@ -937,12 +953,16 @@ MonoBehaviour:
   attackLeftFlag: 0
   attackRightFlag: 0
   attackDownFlag: 0
+  activeSpellTypes: 
+  activeSpell: 0
   hitboxLeft: {fileID: 882863428003156977}
   hitboxRight: {fileID: 7588889546628843846}
   hitboxUp: {fileID: 300115376177606369}
   hitboxDown: {fileID: 1426844062537156600}
   _playerSprite: {fileID: 9044369072761023975}
   horizontalLobSpell: {fileID: 4660134458495843722, guid: 45c3fcd4ab818ba44b012ad1cf601c09, type: 3}
+  seedDropSpell: {fileID: 4660134458495843722, guid: 922ac224428199649a52c94962d0bcbe, type: 3}
+  CurrentSpellPrefab: {fileID: 0}
 --- !u!114 &7506385538496532456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,14 +999,14 @@ MonoBehaviour:
     dodge: 0
     fertilizer: 0
     parry: 0
-    spell: 0
+    spell: 
   debug: 1
   debugSword: 1
   debugDoubleJump: 0
   debugWallCling: 0
   debugHover: 0
   debugDeflect: 0
-  debugSpell: 1
+  debugSpell: 0101
   debugFertilizer: 4
   debugDodge: 0
   debugParry: 1

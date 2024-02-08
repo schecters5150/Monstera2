@@ -39,5 +39,6 @@ public class SpellProjectileMove : MonoBehaviour
 
 public enum SpellType
 {
-    horizontalLob
+    horizontalLob,
+    seedDrop
 }

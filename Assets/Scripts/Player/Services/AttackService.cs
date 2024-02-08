@@ -12,6 +12,8 @@ public class AttackService : MonoBehaviour
     public bool attackLeftFlag;
     public bool attackRightFlag;
     public bool attackDownFlag;
+    public List<SpellType> activeSpellTypes;
+    public SpellType activeSpell;
 
     public GameObject hitboxLeft;
     public GameObject hitboxRight;
@@ -19,27 +21,39 @@ public class AttackService : MonoBehaviour
     public GameObject hitboxDown;
     public GameObject _playerSprite;
     public GameObject horizontalLobSpell;
-    
+    public GameObject seedDropSpell;
+    public GameObject CurrentSpellPrefab;
+
 
     private InputManager inputManager;
+    private InventoryModel inventoryModel;
     private Animator animator;
     private StatusModel statusModel;
     private PlayerTimerManager timerManager;
     private PlayerHealth healthService;
     private SoundController soundController;
 
+    private int spellIndex;
+
 
     public void Start()
-    {
+    {    
+        inventoryModel = GetComponent<InventoryModel>();
         statusModel = GetComponent<StatusModel>();
         inputManager = GetComponent<InputManager>();
         animator = GetComponent<Animator>();
         timerManager = GetComponent<PlayerTimerManager>();
         healthService = GetComponent<PlayerHealth>();
         soundController = GetComponent<SoundController>();
+
+        GetActiveSpells();
+        spellIndex = 0;
+        activeSpell = activeSpellTypes[spellIndex];
+
     }
     public void Update()
     {
+        SwapSpell();
         ClearHitboxes();
         CheckAttack();
         CheckParry();
@@ -57,14 +71,36 @@ public class AttackService : MonoBehaviour
     {
         if (inputManager.SpellTriggered())
         {
+            if (activeSpell == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
+            if (activeSpell == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
+
             var pos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
-            Instantiate(horizontalLobSpell, pos, Quaternion.Euler(0,0,0));
+            Instantiate(CurrentSpellPrefab, pos, Quaternion.Euler(0, 0, 0));
             timerManager.attackAnimationTimer.Trigger(swordSwingTime + attackDelayTime);
         }
     }
+
+    public void GetActiveSpells()
+    {
+        if (inventoryModel.jsonModel.spell[0]) activeSpellTypes.Add(SpellType.horizontalLob);
+        if (inventoryModel.jsonModel.spell[1]) activeSpellTypes.Add(SpellType.seedDrop);
+    }
+
+    public void SwapSpell()
+    {
+        if (inputManager.SpellSwap())
+        {
+            spellIndex++;
+            if (spellIndex == activeSpellTypes.Count) spellIndex = 0;
+        }
+
+        activeSpell = activeSpellTypes[spellIndex];
+    }
+
     public void CheckAttack()
     {
-        if (!statusModel.disableAttack && !statusModel.isCling) {
+        if (!statusModel.disableAttack && !statusModel.isCling)
+        {
             AttackRight();
             AttackLeft();
             AttackUp();
@@ -81,7 +117,7 @@ public class AttackService : MonoBehaviour
             attackRightFlag = true;
             hitboxRight.SetActive(true);
             animator.SetTrigger("TrAttackRight");
-        }           
+        }
     }
     private void AttackLeft()
     {
@@ -132,7 +168,7 @@ public class AttackService : MonoBehaviour
 
     public void ClearHitboxes()
     {
-        if(statusModel.isAttacking && timerManager.attackTimer.IsUp())
+        if (statusModel.isAttacking && timerManager.attackTimer.IsUp())
         {
             hitboxUp.SetActive(false);
             hitboxDown.SetActive(false);
@@ -149,7 +185,8 @@ public class AttackService : MonoBehaviour
 
     public void ClearAttackFlags()
     {
-        if (!statusModel.isAttacking) { 
+        if (!statusModel.isAttacking)
+        {
             attackLeftFlag = false;
             attackRightFlag = false;
             attackDownFlag = false;
@@ -158,7 +195,8 @@ public class AttackService : MonoBehaviour
 
     public void ClearAttackTimer()
     {
-        if (statusModel.isCling) {
+        if (statusModel.isCling)
+        {
             timerManager.attackTimer.Trigger(-1);
         }
     }
