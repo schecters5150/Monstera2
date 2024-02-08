@@ -12,6 +12,7 @@ public class SoundController : MonoBehaviour
     public AudioClip hover;
     public AudioClip hit;
     public AudioClip parry;
+    public AudioClip parrySuccess;
     private AudioSource audioSource;
 
     public float walkTimerDelay;
@@ -42,6 +43,11 @@ public class SoundController : MonoBehaviour
         audioSource.PlayOneShot(parry);
     }
 
+    public void PlayParrySuccess()
+    {
+        audioSource.PlayOneShot(parrySuccess);
+    }
+
     public void PlayShatter()
     {
         audioSource.PlayOneShot(potteryBreak);
@@ -66,12 +72,6 @@ public class SoundController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!statusModel.isInvincible)
-        {
-            if(collision.tag == "Enemy")
-            {
-                
-            }
-        }
+
     }
 }

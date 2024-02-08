@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int maxHealth;
-    public int health;
+    public float maxHealth;
+    public float health;
 
     public float hitstunTime;
     Timer hitstunTimer;
@@ -16,8 +16,10 @@ public class EnemyHealth : MonoBehaviour
     public float poise;
     public float poiseHealRate;
     public float poiseBreakTime;
+    public GameObject deathObject;
 
     private EnemyStatusModel enemyStatusModel;
+    private EnemySoundController enemySoundController;
 
     public void Start()
     {
@@ -26,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
         hitstunTimer = new Timer();
         invincibilityTimer = new Timer();
         enemyStatusModel = GetComponentInParent<EnemyStatusModel>();
+        enemySoundController = GetComponentInParent<EnemySoundController>();
     }
 
     public void Update()
@@ -36,9 +39,14 @@ public class EnemyHealth : MonoBehaviour
             enemyStatusModel.isHitstun = false;
         }
 
-        if (health <= 0) Destroy(this.transform.parent.gameObject);
+        if (health <= 0) Death();
+    }
 
-        
+    public void Death()
+    {
+        if (deathObject != null) { Instantiate(deathObject, transform.position, transform.rotation); }
+        enemySoundController.PlayDeathNoise();
+        Destroy(this.transform.parent.gameObject);
     }
 
     public void FixedUpdate()
@@ -51,12 +59,12 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void ReduceHealth(int health)
+    public void ReduceHealth(float health)
     {
         this.health -= health;
     }
 
-    public void ReducePoise(int poiseDamage)
+    public void ReducePoise(float poiseDamage)
     {
         this.poise -= poiseDamage;
     }
@@ -78,10 +86,10 @@ public class EnemyHealth : MonoBehaviour
 
     public void HitDetection(Collider2D collision)
     {
-        if (collision.tag == "Hitbox" && collision.transform.parent.gameObject.name == "Player")
+        if (collision.tag == "Hitbox")
         {
-            ReduceHealth(1);
-            ReducePoise(1);
+            ReduceHealth(collision.gameObject.GetComponent<PlayerDamage>().healthDamage);
+            ReducePoise(collision.gameObject.GetComponent<PlayerDamage>().poiseDamage);
             TriggerHitstun();
             TriggerInvincibility();
         }

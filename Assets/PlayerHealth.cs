@@ -14,11 +14,13 @@ public class PlayerHealth : MonoBehaviour
 
     private StatusModel statusModel;
     private InputManager inputManager;
+    private SoundController soundController;
 
     private void Start()
     {
         statusModel = GetComponent<StatusModel>();
         inputManager = GetComponent<InputManager>();
+        soundController = GetComponent<SoundController>();
 
         stamina = maxStamina;
         heals = ES3.Load("heals", maxHeals);
@@ -27,10 +29,11 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Update()
     {
-        if(statusModel.isGrounded) RefreshStamina();
+        if (statusModel.isGrounded) RefreshStamina();
         StaminaState();
         CheckHealing();
-        if (health <= 0) {
+        if (health <= 0)
+        {
             ES3.Save("health", 0);
             ES3.Save("loadToSavePoint", true);
             SceneManager.LoadScene(ES3.Load("SaveScene", 0));
@@ -59,7 +62,11 @@ public class PlayerHealth : MonoBehaviour
     }
     public void ReduceHealth(int reduction)
     {
-        if (!statusModel.isInvincible) health -= reduction;
+        if (!statusModel.isInvincible)
+        {
+            health -= reduction;
+            soundController.PlayShatter();
+        }
     }
     public void ReduceStamina(float reduction)
     {
@@ -87,7 +94,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "StaminaRegen")
+        if (collider.tag == "StaminaRegen")
         {
             stamina = maxStamina;
             //Destroy(collider.transform.gameObject);

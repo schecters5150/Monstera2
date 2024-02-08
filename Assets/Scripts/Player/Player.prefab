@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 8510164293012127346}
   - component: {fileID: 2239506817146865742}
   - component: {fileID: 754386648095742822}
+  - component: {fileID: 798795583288287356}
   m_Layer: 8
   m_Name: HitboxUp
   m_TagString: Hitbox
@@ -206,6 +207,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.2, y: 1.2}
   m_Direction: 0
+--- !u!114 &798795583288287356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300115376177606369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa275ca14fce5c47a41ef919996a7af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealthDamage: 5
+  healthDamage: 0
+  basePoiseDamage: 5
+  poiseDamage: 0
 --- !u!1 &882863428003156977
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +236,7 @@ GameObject:
   - component: {fileID: 5149714467329973325}
   - component: {fileID: 5690301952062825784}
   - component: {fileID: 2148079953517582579}
+  - component: {fileID: 5079299384954667312}
   m_Layer: 8
   m_Name: HitboxLeft
   m_TagString: Hitbox
@@ -355,6 +373,22 @@ PolygonCollider2D:
       - {x: 0.38016343, y: -0.55530167}
       - {x: 0.5213859, y: -0.23500061}
       - {x: 0.48617268, y: 0.47233963}
+--- !u!114 &5079299384954667312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882863428003156977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa275ca14fce5c47a41ef919996a7af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealthDamage: 5
+  healthDamage: 0
+  basePoiseDamage: 5
+  poiseDamage: 0
 --- !u!1 &1426844062537156600
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +402,7 @@ GameObject:
   - component: {fileID: 5384558937232335595}
   - component: {fileID: 6363028537163786455}
   - component: {fileID: 2794179695808667721}
+  - component: {fileID: 6454178822882116899}
   m_Layer: 8
   m_Name: HitboxDown
   m_TagString: Hitbox
@@ -489,6 +524,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.2987898}
   m_Size: {x: 1.2, y: 0.60242045}
   m_Direction: 0
+--- !u!114 &6454178822882116899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426844062537156600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa275ca14fce5c47a41ef919996a7af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealthDamage: 5
+  healthDamage: 0
+  basePoiseDamage: 5
+  poiseDamage: 0
 --- !u!1 &1767051576188398697
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +928,7 @@ MonoBehaviour:
   damage: 0
   swordSwingTime: 0.15
   attackDelayTime: 0.2
-  parryTime: 0
+  parryTime: 0.1
   swordStaminaReduction: 0
   attackLeftFlag: 0
   attackRightFlag: 0
@@ -1068,6 +1119,7 @@ MonoBehaviour:
   hover: {fileID: 8300000, guid: 54e628ee40384f040af300d5e9f9e016, type: 3}
   hit: {fileID: 8300000, guid: b095455289bc04fca92e91be30c46fa5, type: 3}
   parry: {fileID: 8300000, guid: a75570e55f3a9204ebb55e4b86dbb1e0, type: 3}
+  parrySuccess: {fileID: 8300000, guid: 14aad116264edb242bab6be6638ee6c2, type: 3}
   walkTimerDelay: 0.7
   hoverTimerDelay: 0.5
 --- !u!212 &3187161136430377658
@@ -6389,6 +6441,7 @@ GameObject:
   - component: {fileID: 6108678232034404163}
   - component: {fileID: 7532249674549850821}
   - component: {fileID: 8910571139943795250}
+  - component: {fileID: 6578735530748812709}
   m_Layer: 8
   m_Name: HitboxRight
   m_TagString: Hitbox
@@ -6525,6 +6578,22 @@ PolygonCollider2D:
       - {x: 0.38016343, y: -0.55530167}
       - {x: 0.5213859, y: -0.23500061}
       - {x: 0.48617268, y: 0.47233963}
+--- !u!114 &6578735530748812709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588889546628843846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa275ca14fce5c47a41ef919996a7af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealthDamage: 5
+  healthDamage: 0
+  basePoiseDamage: 5
+  poiseDamage: 0
 --- !u!1 &7872530523643514211
 GameObject:
   m_ObjectHideFlags: 0

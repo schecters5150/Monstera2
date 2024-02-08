@@ -115,16 +115,18 @@ public class PlayerController : MonoBehaviour
 
             if (_statusModel.isParrying)
             {
-
+                _soundController.PlayParrySuccess();
             }
-            else {
-                _soundController.PlayShatter();
-                _onHitFeedback.GetComponent<MMFeedbacks>().PlayFeedbacks();
-                _playerHealth.ReduceHealth(collider.gameObject.GetComponent<EnemyHitbox>().damage);
-                _timerManager.invincibilityTimer.Trigger(_timerManager.maxInvincibilityTime);
+            else
+            {
+                if (!_statusModel.isInvincible)
+                {
+                    _onHitFeedback.GetComponent<MMFeedbacks>().PlayFeedbacks();
+                    _playerHealth.ReduceHealth(collider.gameObject.GetComponent<EnemyHitbox>().damage);
+                    _timerManager.invincibilityTimer.Trigger(_timerManager.maxInvincibilityTime);
+                }
                 _moveService.SetBumpDirection(GetBumpDirection(collider));
                 _timerManager.hitstunTimer.Trigger(_timerManager.maxHitstunTime);
-                
             }
         }
         if (collider.tag == "ZoomOutZone")
@@ -187,11 +189,11 @@ public class PlayerController : MonoBehaviour
         }
         if (_statusModel.isCling)
         {
-            if(_moveService.clingJumpDirection > 0)
+            if (_moveService.clingJumpDirection > 0)
             {
                 _playerSprite.flipX = false;
             }
-            if(_moveService.clingJumpDirection < 0)
+            if (_moveService.clingJumpDirection < 0)
             {
                 _playerSprite.flipX = true;
             }

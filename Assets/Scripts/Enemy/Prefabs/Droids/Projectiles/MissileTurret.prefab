@@ -28,8 +28,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8694360791998301365}
-  m_RootOrder: 1
+  m_Father: {fileID: 2630744920328798149}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5982590286908841836
 MonoBehaviour:
@@ -43,10 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e559672411f4da41993c4905f356604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 10
   health: 0
   hitstunTime: 0.3
   invincibilityTime: 0.2
+  maxPoise: 0
+  poise: 0
+  poiseHealRate: 0
+  poiseBreakTime: 0
+  deathObject: {fileID: 6627768147307125576, guid: 6eb6d540dee2c154594a359047b9d2c3, type: 3}
 --- !u!1 &5982088555816312100
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,9 +83,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7963995538269222592}
   - {fileID: 8694360791403090628}
   m_Father: {fileID: 8694360791998301365}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &155027298102493896
 Rigidbody2D:
@@ -314,7 +320,7 @@ Transform:
   - {fileID: 8694360791258169318}
   - {fileID: 8694360791237793544}
   m_Father: {fileID: 2630744920328798149}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8694360791403090631
 SpriteRenderer:
@@ -389,6 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8694360791998301365}
   - component: {fileID: 8694360791998301362}
+  - component: {fileID: 729695398944301561}
   m_Layer: 0
   m_Name: MissileTurret
   m_TagString: Untagged
@@ -408,7 +415,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8694360792256749487}
-  - {fileID: 7963995538269222592}
   - {fileID: 2630744920328798149}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -430,6 +436,20 @@ MonoBehaviour:
   isInvincible: 0
   isStunnable: 0
   isGrounded: 0
+--- !u!114 &729695398944301561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694360791998301363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316a9ae8b9ee8c645b95333b04389f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: 49477b36ba01f574596dedb57e040fda, type: 3}
+  attackSound: {fileID: 0}
 --- !u!1 &8694360792256749484
 GameObject:
   m_ObjectHideFlags: 0
