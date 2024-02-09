@@ -1002,9 +1002,9 @@ MonoBehaviour:
     spell: 
   debug: 1
   debugSword: 1
-  debugDoubleJump: 0
-  debugWallCling: 0
-  debugHover: 0
+  debugDoubleJump: 1
+  debugWallCling: 1
+  debugHover: 1
   debugDeflect: 0
   debugSpell: 0101
   debugFertilizer: 4
@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusModel: {fileID: 0}
-  potteryBreak: {fileID: 8300000, guid: a4618070045fdf64e9687ef046a14d00, type: 3}
+  potteryBreak: {fileID: 8300000, guid: 2a88a6358ed6bb146b96059fc9924bb5, type: 3}
   attackWhoosh: {fileID: 8300000, guid: 4da74024ebf89aa4eb5e70679e323cfb, type: 3}
   walk: {fileID: 8300000, guid: 3f06352074c17814dbf2ad419bf3165e, type: 3}
   hover: {fileID: 8300000, guid: 54e628ee40384f040af300d5e9f9e016, type: 3}

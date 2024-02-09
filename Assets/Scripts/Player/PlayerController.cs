@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.tag == "Enemy" && !_statusModel.isInvincible && !_statusModel.isDodging)
+        if (collider.tag == "Enemy" && !_statusModel.isInvincible && !_statusModel.isDodging && !_statusModel.isParrying)
         {
             if (_statusModel.isDodging) return;
             _moveService.SetBumpDirection(GetBumpDirection(collider));

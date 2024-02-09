@@ -182,7 +182,7 @@ public class MoveService : MonoBehaviour
 
     public void HitStun()
     {
-        if (!_statusModel.isHitstun || _statusModel.isParrying) return;
+        if (!_statusModel.isHitstun) return;
 
         var velocity = _controller.velocity;
         velocity.x = hitstunSpeedX * bumpDirection;

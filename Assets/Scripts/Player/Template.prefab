@@ -180,22 +180,6 @@ PrefabInstance:
       propertyPath: debugDodge
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
-      propertyPath: debugHover
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
-      propertyPath: debugDeflect
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
-      propertyPath: debugWallCling
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3482645879182187820, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
-      propertyPath: debugDoubleJump
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4344278395715914423, guid: 061174f70e3d0184e8ececb7ce4efbad, type: 3}
       propertyPath: FeedbacksList.Array.size
       value: 2

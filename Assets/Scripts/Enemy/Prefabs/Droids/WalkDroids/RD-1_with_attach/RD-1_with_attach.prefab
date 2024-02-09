@@ -587,6 +587,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -5.58
       objectReference: {fileID: 0}
+    - target: {fileID: 4461267562179772086, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
+      propertyPath: attachedObjectHealth
+      value: 
+      objectReference: {fileID: 7527383324325097702}
+    - target: {fileID: 4461267562179772086, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
+      propertyPath: reduceAttachedObjectHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6954929910269969710, guid: f7a391dd8d4f7ec4f90c93908982e892, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.27
