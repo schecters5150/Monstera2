@@ -1005,7 +1005,7 @@ MonoBehaviour:
   debugDoubleJump: 1
   debugWallCling: 1
   debugHover: 1
-  debugDeflect: 0
+  debugDeflect: 1
   debugSpell: 0101
   debugFertilizer: 4
   debugDodge: 0

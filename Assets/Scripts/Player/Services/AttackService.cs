@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,48 +54,72 @@ public class AttackService : MonoBehaviour
     }
     public void Update()
     {
-        SwapSpell();
         ClearHitboxes();
         CheckAttack();
         CheckParry();
         CheckSpell();
+        SwapSpell();
     }
     public void CheckParry()
     {
-        if (inputManager.ParryTriggered() && !statusModel.isAttacking)
+        try
         {
-            soundController.PlayParry();
-            timerManager.parryTimer.Trigger(parryTime);
+            if (inputManager.ParryTriggered() && !statusModel.isAttacking)
+            {
+                soundController.PlayParry();
+                timerManager.parryTimer.Trigger(parryTime);
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.LogException(e);
         }
     }
     public void CheckSpell()
     {
-        if (inputManager.SpellTriggered())
+        try
         {
-            if (activeSpell == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
-            if (activeSpell == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
+            if (inputManager.SpellTriggered())
+            {
+                if (activeSpell == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
+                if (activeSpell == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
 
-            var pos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
-            Instantiate(CurrentSpellPrefab, pos, Quaternion.Euler(0, 0, 0));
-            timerManager.attackAnimationTimer.Trigger(swordSwingTime + attackDelayTime);
+                var pos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
+                Instantiate(CurrentSpellPrefab, pos, Quaternion.Euler(0, 0, 0));
+                timerManager.attackAnimationTimer.Trigger(swordSwingTime + attackDelayTime);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
         }
     }
 
     public void GetActiveSpells()
     {
+        if (inventoryModel.jsonModel.spell.Length == 0) return;
+
         if (inventoryModel.jsonModel.spell[0]) activeSpellTypes.Add(SpellType.horizontalLob);
         if (inventoryModel.jsonModel.spell[1]) activeSpellTypes.Add(SpellType.seedDrop);
     }
 
     public void SwapSpell()
     {
-        if (inputManager.SpellSwap())
+        try
         {
-            spellIndex++;
-            if (spellIndex == activeSpellTypes.Count) spellIndex = 0;
+            if (inputManager.SpellSwapTriggered())
+            {
+                spellIndex++;
+                if (spellIndex == activeSpellTypes.Count) spellIndex = 0;
+            }
+
+            if(activeSpellTypes.Count > 0) activeSpell = activeSpellTypes[spellIndex];
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
         }
 
-        activeSpell = activeSpellTypes[spellIndex];
     }
 
     public void CheckAttack()

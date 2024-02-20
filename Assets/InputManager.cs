@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
     {
         return _inputMaster.Platformer.Spell.triggered;
     }
-    public bool SpellSwap()
+    public bool SpellSwapTriggered()
     {
         return _inputMaster.Platformer.SpellSwap.triggered;
     }
