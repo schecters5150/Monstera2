@@ -961,6 +961,7 @@ MonoBehaviour:
   hitboxDown: {fileID: 1426844062537156600}
   _playerSprite: {fileID: 9044369072761023975}
   horizontalLobSpell: {fileID: 4660134458495843722, guid: 45c3fcd4ab818ba44b012ad1cf601c09, type: 3}
+  postureBurst: {fileID: 4660134458495843722, guid: f4d60f9be0457d64e96053464fadbc60, type: 3}
   seedDropSpell: {fileID: 4660134458495843722, guid: 922ac224428199649a52c94962d0bcbe, type: 3}
   CurrentSpellPrefab: {fileID: 0}
 --- !u!114 &7506385538496532456
@@ -1006,7 +1007,7 @@ MonoBehaviour:
   debugWallCling: 1
   debugHover: 1
   debugDeflect: 1
-  debugSpell: 0101
+  debugSpell: 
   debugFertilizer: 4
   debugDodge: 0
   debugParry: 1

@@ -21,7 +21,9 @@ public class AttackService : MonoBehaviour
     public GameObject hitboxUp;
     public GameObject hitboxDown;
     public GameObject _playerSprite;
+
     public GameObject horizontalLobSpell;
+    public GameObject postureBurst;
     public GameObject seedDropSpell;
     public GameObject CurrentSpellPrefab;
 
@@ -83,6 +85,7 @@ public class AttackService : MonoBehaviour
             {
                 if (activeSpell == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
                 if (activeSpell == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
+                if (activeSpell == SpellType.postureBurst) CurrentSpellPrefab = postureBurst;
 
                 var pos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
                 Instantiate(CurrentSpellPrefab, pos, Quaternion.Euler(0, 0, 0));
@@ -101,6 +104,8 @@ public class AttackService : MonoBehaviour
 
         if (inventoryModel.jsonModel.spell[0]) activeSpellTypes.Add(SpellType.horizontalLob);
         if (inventoryModel.jsonModel.spell[1]) activeSpellTypes.Add(SpellType.seedDrop);
+        if (inventoryModel.jsonModel.spell[2]) activeSpellTypes.Add(SpellType.postureBurst);
+
     }
 
     public void SwapSpell()

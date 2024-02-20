@@ -75,6 +75,7 @@ public class EnemyHealth : MonoBehaviour
     public void ReducePoise(float poiseDamage)
     {
         this.poise -= poiseDamage;
+        if (this.poise < 0) poise = 0;
     }
 
     public void TriggerHitstun()

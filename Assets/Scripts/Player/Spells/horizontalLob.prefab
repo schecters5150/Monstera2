@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealthDamage: 10
   healthDamage: 0
-  basePoiseDamage: 5
+  basePoiseDamage: 0
   poiseDamage: 0

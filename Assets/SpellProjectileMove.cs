@@ -19,7 +19,9 @@ public class SpellProjectileMove : MonoBehaviour
     {   
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        if (spellType == SpellType.horizontalLob) HorizontalLob();
+        if (spellType == SpellType.horizontalLob) LinearMove();
+        if (spellType == SpellType.seedDrop) LinearMove();
+        if (spellType == SpellType.postureBurst) LinearMove();
     }
 
     // Update is called once per frame
@@ -28,17 +30,18 @@ public class SpellProjectileMove : MonoBehaviour
         
     }
 
-    public void HorizontalLob()
+    public void LinearMove()
     {
         directionX = GameObject.Find("Player").transform.GetComponent<MoveService>().GetDirectionX();
         if (directionX == 1) spriteRenderer.flipX = false;
         if (directionX == -1) spriteRenderer.flipX = true;
-        rb.velocity = new Vector3 (directionX * speedX, 0, 0);
+        rb.velocity = new Vector3 (directionX * speedX, speedY, 0);
     }
 }
 
 public enum SpellType
 {
     horizontalLob,
-    seedDrop
+    seedDrop,
+    postureBurst
 }

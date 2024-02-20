@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2196046043202331524}
   - component: {fileID: 7397813366725606411}
   m_Layer: 8
-  m_Name: seedDrop
+  m_Name: postureBurst
   m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7847214035839342419, guid: 7a91bebdd2d031e48ab6a62d734a3f4d, type: 3}
-  m_Color: {r: 0.8207547, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.37376443, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa275ca14fce5c47a41ef919996a7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealthDamage: 10
+  baseHealthDamage: 0
   healthDamage: 0
-  basePoiseDamage: 5
+  basePoiseDamage: 10
   poiseDamage: 0

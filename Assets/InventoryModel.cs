@@ -58,6 +58,12 @@ public class InventoryModel : MonoBehaviour
     {
         if (debug)
         {
+            debugSpell = new bool[Enum.GetNames(typeof(SpellType)).Length];
+            var spellCount = Enum.GetNames(typeof(SpellType)).Length;
+            for (int i = 0; i < spellCount; i++) { 
+                debugSpell[i] = true; 
+            }
+
             jsonModel = new InventoryJsonModel()
             {
                 sword = debugSword,
@@ -93,5 +99,5 @@ public class InventoryJsonModel
     public bool dodge;
     public int fertilizer;
     public bool parry;
-    public bool[] spell = new bool[2];
+    public bool[] spell = new bool[Enum.GetNames(typeof(SpellType)).Length];
 }
