@@ -11,9 +11,6 @@ public class EnemyController : MonoBehaviour
     private EnemyStatusModel enemyStatusModel;
     private EnemyHealth enemyHealth;
 
-
-
-
     void Start()
     {
         enemyStatusModel = GetComponentInParent<EnemyStatusModel>();

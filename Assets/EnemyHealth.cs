@@ -15,10 +15,12 @@ public class EnemyHealth : MonoBehaviour
     Timer hitstunTimer;
     public float invincibilityTime;
     Timer invincibilityTimer;
+    public bool hasPoise;
     public float maxPoise;
     public float poise;
     public float poiseHealRate;
     public float poiseBreakTime;
+    Timer poiseTimer;
     public GameObject deathObject;
 
     private EnemyStatusModel enemyStatusModel;
@@ -30,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
         poise = maxPoise;
         hitstunTimer = new Timer();
         invincibilityTimer = new Timer();
+        poiseTimer = new Timer();
         enemyStatusModel = GetComponentInParent<EnemyStatusModel>();
         enemySoundController = GetComponentInParent<EnemySoundController>();
     }
@@ -56,9 +59,16 @@ public class EnemyHealth : MonoBehaviour
     {
         invincibilityTimer.CalculateTime();
         hitstunTimer.CalculateTime();
-        if(poise < maxPoise)
+        poiseTimer.CalculateTime();
+
+        if (poise < maxPoise && !enemyStatusModel.isPoiseBroken)
         {
             poise += .016f * poiseHealRate;
+        }
+        if (poiseTimer.IsUp() && enemyStatusModel.isPoiseBroken)
+        {
+            poise = maxPoise;
+            enemyStatusModel.isPoiseBroken = false;
         }
     }
 
@@ -74,8 +84,16 @@ public class EnemyHealth : MonoBehaviour
 
     public void ReducePoise(float poiseDamage)
     {
+        if (!hasPoise || enemyStatusModel.isPoiseBroken) return;
+
         this.poise -= poiseDamage;
-        if (this.poise < 0) poise = 0;
+
+        if (this.poise <= 0)
+        {
+            poise = 0;
+            enemyStatusModel.isPoiseBroken = true;
+            poiseTimer.Trigger(poiseBreakTime);
+        }
     }
 
     public void TriggerHitstun()
@@ -111,6 +129,4 @@ public class EnemyHealth : MonoBehaviour
             TriggerHitstun();
         }
     }
-
-
 }

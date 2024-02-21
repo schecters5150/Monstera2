@@ -26,7 +26,8 @@ public class EnemyMoveWalk : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (enemyStatusModel.isHitstun)
+        if (enemyStatusModel.isPoiseBroken) ;//do nothing
+        else if (enemyStatusModel.isHitstun)
         {
             HitstunMove();
         }

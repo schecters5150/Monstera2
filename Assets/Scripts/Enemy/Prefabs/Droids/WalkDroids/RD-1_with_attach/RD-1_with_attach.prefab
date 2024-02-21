@@ -242,6 +242,7 @@ MonoBehaviour:
   reduceAttachedObjectHealth: 0
   hitstunTime: 0.3
   invincibilityTime: 0.3
+  hasPoise: 1
   maxPoise: 15
   poise: 15
   poiseHealRate: 3
@@ -382,6 +383,7 @@ MonoBehaviour:
   isInvincible: 0
   isStunnable: 1
   isGrounded: 0
+  isPoiseBroken: 0
 --- !u!95 &1825382951533057461
 Animator:
   serializedVersion: 3

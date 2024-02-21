@@ -10,4 +10,5 @@ public class EnemyStatusModel : MonoBehaviour
     public bool isInvincible;
     public bool isStunnable;
     public bool isGrounded;
+    public bool isPoiseBroken;
 }
