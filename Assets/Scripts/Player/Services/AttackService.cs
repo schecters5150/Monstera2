@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AttackService : MonoBehaviour
@@ -52,6 +53,7 @@ public class AttackService : MonoBehaviour
         GetActiveSpells();
         spellIndex = 0;
         activeSpell = activeSpellTypes[spellIndex];
+        SetCurrentSpellPrefab();
 
     }
     public void Update()
@@ -83,10 +85,6 @@ public class AttackService : MonoBehaviour
         {
             if (inputManager.SpellTriggered())
             {
-                if (activeSpell == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
-                if (activeSpell == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
-                if (activeSpell == SpellType.postureBurst) CurrentSpellPrefab = postureBurst;
-
                 var pos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
                 Instantiate(CurrentSpellPrefab, pos, Quaternion.Euler(0, 0, 0));
                 timerManager.attackAnimationTimer.Trigger(swordSwingTime + attackDelayTime);
@@ -98,6 +96,13 @@ public class AttackService : MonoBehaviour
         }
     }
 
+    public void SetCurrentSpellPrefab()
+    {
+        if (activeSpell == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
+        if (activeSpell == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
+        if (activeSpell == SpellType.postureBurst) CurrentSpellPrefab = postureBurst;
+    }
+
     public void GetActiveSpells()
     {
         if (inventoryModel.jsonModel.spell.Length == 0) return;
@@ -106,6 +111,9 @@ public class AttackService : MonoBehaviour
         if (inventoryModel.jsonModel.spell[1]) activeSpellTypes.Add(SpellType.seedDrop);
         if (inventoryModel.jsonModel.spell[2]) activeSpellTypes.Add(SpellType.postureBurst);
 
+        if (activeSpellTypes.FirstOrDefault() == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
+        if (activeSpellTypes.FirstOrDefault() == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
+        if (activeSpellTypes.FirstOrDefault() == SpellType.postureBurst) CurrentSpellPrefab = postureBurst;
     }
 
     public void SwapSpell()
@@ -116,9 +124,10 @@ public class AttackService : MonoBehaviour
             {
                 spellIndex++;
                 if (spellIndex == activeSpellTypes.Count) spellIndex = 0;
-            }
 
-            if(activeSpellTypes.Count > 0) activeSpell = activeSpellTypes[spellIndex];
+                if (activeSpellTypes.Count > 0) activeSpell = activeSpellTypes[spellIndex];
+                SetCurrentSpellPrefab();
+            }          
         }
         catch (Exception e)
         {
