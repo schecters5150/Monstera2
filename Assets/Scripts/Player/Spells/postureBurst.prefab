@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 6125178676373088803}
   - component: {fileID: 2196046043202331524}
   - component: {fileID: 7397813366725606411}
+  - component: {fileID: 832165134601337616}
   m_Layer: 8
   m_Name: postureBurst
   m_TagString: Hitbox
@@ -266,7 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415e5b8e0f806bd4b939dba5e8d01fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellType: 0
   spriteRenderer: {fileID: 0}
   directionX: 0
   directionY: 0
@@ -288,3 +288,16 @@ MonoBehaviour:
   healthDamage: 0
   basePoiseDamage: 10
   poiseDamage: 0
+--- !u!114 &832165134601337616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660134458495843722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc59c3bf6b6ceee47af6c973a554ae94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellType: 2

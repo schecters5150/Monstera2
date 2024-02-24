@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpellProjectileMove : MonoBehaviour
 {
-    public SpellType spellType;
+    private SpellTypes spellType;
     public SpriteRenderer spriteRenderer;
 
     public int directionX;
@@ -17,11 +17,12 @@ public class SpellProjectileMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        spellType = GetComponent<SpellName>().spellType;
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        if (spellType == SpellType.horizontalLob) LinearMove();
-        if (spellType == SpellType.seedDrop) LinearMove();
-        if (spellType == SpellType.postureBurst) LinearMove();
+        if (spellType == SpellTypes.horizontalLob) LinearMove();
+        if (spellType == SpellTypes.seedDrop) LinearMove();
+        if (spellType == SpellTypes.postureBurst) LinearMove();
     }
 
     // Update is called once per frame
@@ -39,9 +40,4 @@ public class SpellProjectileMove : MonoBehaviour
     }
 }
 
-public enum SpellType
-{
-    horizontalLob,
-    seedDrop,
-    postureBurst
-}
+

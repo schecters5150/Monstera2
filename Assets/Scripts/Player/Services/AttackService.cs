@@ -14,20 +14,12 @@ public class AttackService : MonoBehaviour
     public bool attackLeftFlag;
     public bool attackRightFlag;
     public bool attackDownFlag;
-    public List<SpellType> activeSpellTypes;
-    public SpellType activeSpell;
 
     public GameObject hitboxLeft;
     public GameObject hitboxRight;
     public GameObject hitboxUp;
     public GameObject hitboxDown;
     public GameObject _playerSprite;
-
-    public GameObject horizontalLobSpell;
-    public GameObject postureBurst;
-    public GameObject seedDropSpell;
-    public GameObject CurrentSpellPrefab;
-
 
     private InputManager inputManager;
     private InventoryModel inventoryModel;
@@ -36,9 +28,7 @@ public class AttackService : MonoBehaviour
     private PlayerTimerManager timerManager;
     private PlayerHealth healthService;
     private SoundController soundController;
-
-    private int spellIndex;
-
+    private SpellManager spellManager;
 
     public void Start()
     {    
@@ -49,12 +39,7 @@ public class AttackService : MonoBehaviour
         timerManager = GetComponent<PlayerTimerManager>();
         healthService = GetComponent<PlayerHealth>();
         soundController = GetComponent<SoundController>();
-
-        GetActiveSpells();
-        spellIndex = 0;
-        activeSpell = activeSpellTypes[spellIndex];
-        SetCurrentSpellPrefab();
-
+        spellManager = GetComponent<SpellManager>();
     }
     public void Update()
     {
@@ -62,7 +47,6 @@ public class AttackService : MonoBehaviour
         CheckAttack();
         CheckParry();
         CheckSpell();
-        SwapSpell();
     }
     public void CheckParry()
     {
@@ -86,7 +70,7 @@ public class AttackService : MonoBehaviour
             if (inputManager.SpellTriggered())
             {
                 var pos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
-                Instantiate(CurrentSpellPrefab, pos, Quaternion.Euler(0, 0, 0));
+                Instantiate(spellManager.activeSpellPrefab, pos, Quaternion.Euler(0, 0, 0));
                 timerManager.attackAnimationTimer.Trigger(swordSwingTime + attackDelayTime);
             }
         }
@@ -94,46 +78,6 @@ public class AttackService : MonoBehaviour
         {
             Debug.LogException(e);
         }
-    }
-
-    public void SetCurrentSpellPrefab()
-    {
-        if (activeSpell == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
-        if (activeSpell == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
-        if (activeSpell == SpellType.postureBurst) CurrentSpellPrefab = postureBurst;
-    }
-
-    public void GetActiveSpells()
-    {
-        if (inventoryModel.jsonModel.spell.Length == 0) return;
-
-        if (inventoryModel.jsonModel.spell[0]) activeSpellTypes.Add(SpellType.horizontalLob);
-        if (inventoryModel.jsonModel.spell[1]) activeSpellTypes.Add(SpellType.seedDrop);
-        if (inventoryModel.jsonModel.spell[2]) activeSpellTypes.Add(SpellType.postureBurst);
-
-        if (activeSpellTypes.FirstOrDefault() == SpellType.horizontalLob) CurrentSpellPrefab = horizontalLobSpell;
-        if (activeSpellTypes.FirstOrDefault() == SpellType.seedDrop) CurrentSpellPrefab = seedDropSpell;
-        if (activeSpellTypes.FirstOrDefault() == SpellType.postureBurst) CurrentSpellPrefab = postureBurst;
-    }
-
-    public void SwapSpell()
-    {
-        try
-        {
-            if (inputManager.SpellSwapTriggered())
-            {
-                spellIndex++;
-                if (spellIndex == activeSpellTypes.Count) spellIndex = 0;
-
-                if (activeSpellTypes.Count > 0) activeSpell = activeSpellTypes[spellIndex];
-                SetCurrentSpellPrefab();
-            }          
-        }
-        catch (Exception e)
-        {
-            Debug.LogException(e);
-        }
-
     }
 
     public void CheckAttack()

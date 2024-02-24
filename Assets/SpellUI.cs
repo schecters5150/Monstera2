@@ -6,18 +6,21 @@ using UnityEngine;
 public class SpellUI : MonoBehaviour
 {
     // Start is called before the first frame update
-    private AttackService attackService;
+    private SpellManager spellManager;
 
     private void Start()
     {
-        attackService = GameObject.FindGameObjectWithTag("Player").GetComponent<AttackService>();
+        spellManager = GameObject.FindGameObjectWithTag("Player").GetComponent<SpellManager>();
     }
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        GameObject currentSpell = attackService.CurrentSpellPrefab;
-        GetComponent<BetterImage>().sprite = currentSpell.GetComponentInChildren<BetterImage>().sprite;
+        GameObject currentSpell = spellManager.activeSpellPrefab;
+        if (currentSpell != null)
+        {
+            GetComponent<BetterImage>().sprite = currentSpell.GetComponentInChildren<BetterImage>().sprite;
+        }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System;
+using UnityEditor;
+using System.Linq;
 
 public class InventoryModel : MonoBehaviour
 {
@@ -15,10 +17,13 @@ public class InventoryModel : MonoBehaviour
     public bool debugWallCling;
     public bool debugHover;
     public bool debugDeflect;
-    public bool[] debugSpell;
     public int debugFertilizer;
     public bool debugDodge;
     public bool debugParry;
+
+    public int spellSlots;
+    public List<SpellTypes> unlockedSpells;
+    public List<SpellTypes> activeSpells;
 
 
     public void SaveFile()
@@ -36,7 +41,7 @@ public class InventoryModel : MonoBehaviour
 
     public InventoryJsonModel LoadFile()
     {
-        
+
 
         string destination = Application.persistentDataPath + "/inventory.dat";
         FileStream file;
@@ -58,10 +63,11 @@ public class InventoryModel : MonoBehaviour
     {
         if (debug)
         {
-            debugSpell = new bool[Enum.GetNames(typeof(SpellType)).Length];
-            var spellCount = Enum.GetNames(typeof(SpellType)).Length;
-            for (int i = 0; i < spellCount; i++) { 
-                debugSpell[i] = true; 
+            var spellArr = AssetDatabase.LoadAllAssetsAtPath("Assets/Scripts/Player/Spells");
+
+            foreach (var spell in spellArr)
+            {
+                //unlockedSpells.Add(spell as GameObject);
             }
 
             jsonModel = new InventoryJsonModel()
@@ -72,9 +78,12 @@ public class InventoryModel : MonoBehaviour
                 hover = debugHover,
                 dodge = debugDodge,
                 deflect = debugDeflect,
-                spell = debugSpell,
                 fertilizer = debugFertilizer,
-                parry = debugParry
+                parry = debugParry,
+
+                spellSlots = Enum.GetNames(typeof(SpellTypes)).Length,
+                unlockedSpells = Enum.GetValues(typeof(SpellTypes)).Cast<SpellTypes>().ToList(),
+                activeSpells = Enum.GetValues(typeof(SpellTypes)).Cast<SpellTypes>().ToList()
             };
         }
         else jsonModel = LoadFile();
@@ -83,9 +92,9 @@ public class InventoryModel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    
+
 }
 
 [Serializable]
@@ -99,5 +108,7 @@ public class InventoryJsonModel
     public bool dodge;
     public int fertilizer;
     public bool parry;
-    public bool[] spell = new bool[Enum.GetNames(typeof(SpellType)).Length];
+    public List<SpellTypes> unlockedSpells;
+    public List<SpellTypes> activeSpells;
+    public int spellSlots;
 }
