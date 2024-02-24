@@ -21,11 +21,6 @@ public class InventoryModel : MonoBehaviour
     public bool debugDodge;
     public bool debugParry;
 
-    public int spellSlots;
-    public List<SpellTypes> unlockedSpells;
-    public List<SpellTypes> activeSpells;
-
-
     public void SaveFile()
     {
         string destination = Application.persistentDataPath + "/inventory.dat";
@@ -59,17 +54,10 @@ public class InventoryModel : MonoBehaviour
         return data;
     }
 
-    void Start()
+    void Awake()
     {
         if (debug)
         {
-            var spellArr = AssetDatabase.LoadAllAssetsAtPath("Assets/Scripts/Player/Spells");
-
-            foreach (var spell in spellArr)
-            {
-                //unlockedSpells.Add(spell as GameObject);
-            }
-
             jsonModel = new InventoryJsonModel()
             {
                 sword = debugSword,

@@ -300,4 +300,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc59c3bf6b6ceee47af6c973a554ae94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellType: 0
+  spellType: 1

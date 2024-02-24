@@ -21,6 +21,7 @@ public class SpellManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spellIndex = 0;
         inputManager = GetComponent<InputManager>();
         inventoryModel = GetComponent<InventoryModel>();
         GetSpellLists();
@@ -29,14 +30,15 @@ public class SpellManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         SwapSpell();
     }
 
     public void GetSpellLists()
     {
-        var spellArr = Resources.LoadAll("Assets/Scripts/Player/Spells");
+
+        var spellArr = Resources.LoadAll("Spells");
         foreach (var spell in spellArr)
         {
             allSpellObjects.Add(spell as GameObject);
